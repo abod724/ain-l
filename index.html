@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ✅ أيقونة الموقع (Favicon) -->
 <link rel="icon" href="logo.png" type="image/png">
 <title>لغة عين للبرمجة | تعلم البرمجة بالعربية للمبتدئين</title>
+<!-- ✅ وصف الصفحة (يظهر في نتائج بحث جوجل) -->
 <meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة. اكتب كودك بالعربي وشغّله مباشرة. تدعم المتغيرات، الشروط، الحلقات، والدوال.">
+<!-- ✅ الكلمات المفتاحية -->
 <meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, لغة برمجة عربية, أكواد عربية, برمجة للمبتدئين">
 <style>
   * { box-sizing: border-box; }
   body { font-family: Tahoma, sans-serif; padding: 20px; padding-bottom: 100px; background: #f0f0f0; transition: background-color 0.5s; }
-  textarea { width: 100%; height: 380px; font-family: 'Consolas', monospace; font-size: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; line-height: 1.7; }
+  textarea { width: 100%; height: 320px; font-family: 'Consolas', monospace; font-size: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; line-height: 1.7; }
   #الناتج { white-space: pre-wrap; background: #fff; color: #333; padding: 10px; margin-top: 10px; border-radius: 5px; min-height: 50px; border: 1px solid #ccc; font-family: 'Consolas', monospace; }
   #مخرجات_الويب { background: #fff; padding: 15px; margin-top: 10px; border: 2px dashed #007bff; border-radius: 8px; min-height: 100px; }
   button { padding: 10px 15px; margin: 5px; font-size: 15px; cursor: pointer; border: none; border-radius: 5px; color: white; }
@@ -27,28 +30,57 @@
   #مخرجات_الويب a:hover { text-decoration: underline; }
   #مخرجات_الويب img { max-width:100%; border-radius:6px; margin:10px 0; }
   .hint { color: #666; font-size: 13px; }
-  .أزرار { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-  .أيقونة-نبراس {
-    position: fixed; bottom: 20px; left: 20px; z-index: 999;
-    padding: 14px 28px; background: linear-gradient(135deg, #4f46e5, #7c3aed);
-    color: #fff; border-radius: 50px; text-decoration: none;
-    font-family: Tahoma, sans-serif; font-weight: 700; font-size: 15px;
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
-    transition: all 0.3s ease; cursor: pointer;
+
+  /* الأزرار في صف واحد */
+  .أزرار {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
   }
-  .أيقونة-نبراس:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 28px rgba(79, 70, 229, 0.65); }
+
+  /* ============ 🌟 أيقونة نبراس العائمة ============ */
+  .أيقونة-نبراس {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: Tahoma, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .أيقونة-نبراس:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 28px rgba(79, 70, 229, 0.65);
+  }
   @media (max-width: 600px) {
     body { padding-bottom: 90px; }
-    .أيقونة-نبراس { bottom: 14px; left: 14px; padding: 12px 22px; font-size: 14px; }
+    .أيقونة-نبراس {
+      bottom: 14px;
+      left: 14px;
+      padding: 12px 22px;
+      font-size: 14px;
+    }
   }
 </style>
 </head>
 <body>
 
-  <a href="https://nibras-al.onrender.com/" target="_blank" rel="noopener" class="أيقونة-نبراس">نبراس GP</a>
+  <!-- 🌟 أيقونة نبراس العائمة -->
+  <a href="https://nibras-al.onrender.com/" target="_blank" rel="noopener" class="أيقونة-نبراس">
+    نبراس GP
+  </a>
 
   <h1>لغة عين للبرمجة</h1>
-  <p class="hint">اكتب كودك بالعربي أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
+  <p class="hint">اكتب كودك أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
 
   <textarea id="كود_عين">غير_اللون("#eef2ff")
 أضف_عنوان("🐍 لغة عين للبرمجة")
@@ -110,50 +142,21 @@
   <div id="مخرجات_الويب"></div>
 
 <script>
-// ============ تطبيع النص العربي ============
-function تطبيع(نص) {
-  return String(نص)
-    .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g, '')
-    .replace(/[أإآٱٲٳٵ]/g, 'ا')
-    .replace(/ى/g, 'ي').replace(/ئ/g, 'ي').replace(/ؤ/g, 'و')
-    .replace(/ة/g, 'ه')
-    .replace(/ک/g, 'ك').replace(/ی/g, 'ي');
-}
-function إزالة_التشكيل(نص) {
-  return String(نص).replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g, '');
-}
-function تطبيع_الكائن(كائن) {
-  const نتيجه = {};
-  for (const [k, v] of Object.entries(كائن)) نتيجه[تطبيع(k)] = v;
-  return نتيجه;
-}
-
-// ============ ادوات الارقام ============
+// ============ أدوات ============
 const خريطة_ع_إ = {'٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9'};
 const خريطة_إ_ع = {'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
 const تحويل_الأرقام_للإنجليزية = ن => ن.replace(/[٠-٩]/g, ح => خريطة_ع_إ[ح]);
 const تحويل_الأرقام_للعربية   = ن => String(ن).replace(/[0-9]/g, ر => خريطة_إ_ع[ر]);
 
-// ============ الكلمات المحجوزة ============
-const الكلمات_المحجوزة = new Set([
-  'متغير','اطبع','اذا','اخر','كرر','من','الي','داله','ارجع','بينما',
-  'شرط','لو','و','او','ليس','صحيح','خطا',
-  'كسر','استمر',
-  'يساوي','لا_يساوي','اكبر_من','اصغر_من','اكبر_او_يساوي','اصغر_او_يساوي',
-  'اضف_نص','اضف_عنوان','غير_اللون','اضف_زر','اضف_رابط','اضف_صوره','عين_الخط'
-]);
-
 // ============ المكتبات ============
 const مكتبة_رياضيات = {
   'رقم': (ق) => Number(ق), 'عدد': (ق) => Number(ق),
   'جذر': (ن) => Math.sqrt(Number(ن)), 'قوة': (أ, ب) => Math.pow(Number(أ), Number(ب)),
-  'مطلق': (ن) => Math.abs(Number(ن)), 'اكبر': (أ, ب) => Math.max(Number(أ), Number(ب)),
-  'اصغر': (أ, ب) => Math.min(Number(أ), Number(ب)), 'دائري': (ن) => Math.round(Number(ن)),
-  'ارضيه': (ن) => Math.floor(Number(ن)), 'سقفيه': (ن) => Math.ceil(Number(ن)),
+  'مطلق': (ن) => Math.abs(Number(ن)), 'أكبر': (أ, ب) => Math.max(Number(أ), Number(ب)),
+  'أصغر': (أ, ب) => Math.min(Number(أ), Number(ب)), 'دائري': (ن) => Math.round(Number(ن)),
+  'أرضية': (ن) => Math.floor(Number(ن)), 'سقفية': (ن) => Math.ceil(Number(ن)),
   'عشوائي': (أ, ب) => Math.floor(Math.random() * (Number(ب) - Number(أ) + 1)) + Number(أ),
   'باي': () => Math.PI, 'مجموع': (ق) => ق.reduce((س, ع) => س + Number(ع), 0),
-  'تقريب': (ن, خ) => Number(Number(ن).toFixed(Number(خ) || 2)),
-  'زوجي': (ن) => Number(ن) % 2 === 0, 'فردي': (ن) => Number(ن) % 2 !== 0,
 };
 const مكتبة_نصوص = {
   'طول': (ن) => String(ن).length, 'جزء': (ن, م, إ) => String(ن).slice(Number(م), Number(إ)),
@@ -161,65 +164,51 @@ const مكتبة_نصوص = {
   'استبدل': (ن, ق, ج) => String(ن).split(String(ق)).join(String(ج)),
   'قسم': (ن, ف) => String(ن).split(String(ف)), 'رابط': (ق, ف) => ق.join(ف ?? ' '),
   'يحتوي': (ن, ج) => String(ن).includes(String(ج)),
-  'ازل_فراغ': (ن) => String(ن).trim(),
+  'أزل_فراغ': (ن) => String(ن).trim(),
   'كبير': (ن) => String(ن).toUpperCase(), 'صغير': (ن) => String(ن).toLowerCase(),
-  'اول_حرف': (ن) => String(ن).charAt(0), 'اخر_حرف': (ن) => String(ن).slice(-1),
-  'اعدد_الكلمات': (ن) => String(ن).trim().split(/\s+/).length,
-  'مقلوب': (ن) => String(ن).split('').reverse().join(''),
 };
 const مكتبة_قوائم = {
-  'اضف_عنصر': (ق, ع) => { ق.push(ع); return ق; },
-  'احذف_الاخير': (ق) => { ق.pop(); return ق; },
-  'طول_قائمه': (ق) => ق.length, 'رتب': (ق) => [...ق].sort((أ, ب) => أ > ب ? 1 : -1),
-  'اعكس': (ق) => [...ق].reverse(), 'في_القائمه': (ق, ع) => ق.includes(ع),
-  'اول': (ق) => ق[0], 'اخر': (ق) => ق[ق.length - 1],
-  'اصغر_عنصر': (ق) => Math.min(...ق.map(Number)),
-  'اكبر_عنصر': (ق) => Math.max(...ق.map(Number)),
+  'أضف_عنصر': (ق, ع) => { ق.push(ع); return ق; },
+  'احذف_الأخير': (ق) => { ق.pop(); return ق; },
+  'طول_قائمة': (ق) => ق.length, 'رتب': (ق) => [...ق].sort((أ, ب) => أ > ب ? 1 : -1),
+  'اعكس': (ق) => [...ق].reverse(), 'في_القائمة': (ق, ع) => ق.includes(ع),
+  'أول': (ق) => ق[0], 'آخر': (ق) => ق[ق.length - 1],
 };
 const مكتبة_وقت = {
-  'السنه': () => new Date().getFullYear(), 'الشهر': () => new Date().getMonth() + 1,
-  'اليوم': () => new Date().getDate(), 'الساعه': () => new Date().getHours(),
-  'الدقيقه': () => new Date().getMinutes(),
+  'السنة': () => new Date().getFullYear(), 'الشهر': () => new Date().getMonth() + 1,
+  'اليوم': () => new Date().getDate(), 'الساعة': () => new Date().getHours(),
+  'الدقيقة': () => new Date().getMinutes(),
   'تاريخ_اليوم': () => new Date().toLocaleDateString('ar-EG'),
 };
 const مكتبة_تفاعل = {
-  'اطلب': (س) => prompt(String(س)) ?? '', 'تاكيد': (س) => confirm(String(س)),
+  'اطلب': (س) => prompt(String(س)) ?? '', 'تأكيد': (س) => confirm(String(س)),
   'نبه': (ر) => { alert(String(ر)); return null; },
 };
-const مكتبة_الوان = {
+const مكتبة_ألوان = {
   'لون_عشوائي': () => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'),
   'لون_فاتح': () => '#' + ['e3f2fd','e8f5e9','fce4ec','fff8e1','f3e5f5','f0f9ff'][Math.floor(Math.random()*6)],
   'لون_غامق': () => '#' + ['1e293b','0f172a','111827','1f2937','3f3f46'][Math.floor(Math.random()*5)],
 };
-
-const المكتبات = تطبيع_الكائن({
-  ...مكتبة_رياضيات, ...مكتبة_نصوص, ...مكتبة_قوائم,
-  ...مكتبة_وقت, ...مكتبة_تفاعل, ...مكتبة_الوان
-});
+const المكتبات = { ...مكتبة_رياضيات, ...مكتبة_نصوص, ...مكتبة_قوائم, ...مكتبة_وقت, ...مكتبة_تفاعل, ...مكتبة_ألوان };
 
 // ============ Tokenizer ============
+const الكلمات_المحجوزة = new Set([
+  'متغير','اطبع','إذا','آخر','كرر','من','إلى','دالة','إرجع','بينما','و','أو',
+  'أضف_نص','أضف_عنوان','غير_اللون','أضف_زر','أضف_رابط','أضف_صورة','عيّن_الخط'
+]);
 function tokenize(code) {
-  code = إزالة_التشكيل(code);
   code = تحويل_الأرقام_للإنجليزية(code);
-
   const tokens = [];
   const regex = /\s*(#[^\n]*|\/\/[^\n]*|==|!=|>=|<=|[=<>+\-*/%(){}\[\],،!]|"[^"]*"|'[^']*'|[\p{L}_][\p{L}\p{N}_]*|\d+(?:\.\d+)?)/gu;
   let m;
   while ((m = regex.exec(code)) !== null) {
     let value = m[1];
-    let type = 'معرف';
     if (value.startsWith('#') || value.startsWith('//')) continue;
-    if (/^\d/.test(value)) {
-      type = 'رقم';
-    } else if (/^["']/.test(value)) {
-      type = 'نص';
-      value = value.slice(1, -1);
-    } else if (/^[=<>+\-*/%(){}\[\],،!]/.test(value)) {
-      type = 'رمز';
-    } else {
-      value = تطبيع(value);
-      if (الكلمات_المحجوزة.has(value)) type = 'كلمة_محجوزة';
-    }
+    let type = 'معرف';
+    if (الكلمات_المحجوزة.has(value)) type = 'كلمة_محجوزة';
+    else if (/^\d/.test(value)) type = 'رقم';
+    else if (/^["']/.test(value)) { type = 'نص'; value = value.slice(1, -1); }
+    else if (/^[=<>+\-*/%(){}\[\],،!]/.test(value)) type = 'رمز';
     tokens.push({ type, value });
   }
   tokens.push({ type: 'نهاية', value: '' });
@@ -232,44 +221,22 @@ function parse(tokens) {
   const peek = (ن = 0) => tokens[pos + ن] || tokens[tokens.length - 1];
   const consume = () => tokens[pos++];
   const expect = v => { if (peek().value !== v) throw new Error(`متوقع "${v}" لكن وجدت "${peek().value || 'نهاية'}"`); return consume(); };
-
-  const هي_شرط  = v => ['اذا','شرط','لو'].includes(v);
-  const هي_آخر  = v => v === 'اخر';
-  const هي_الى  = v => v === 'الي';
-  const هي_ارجع = v => v === 'ارجع';
-  const هي_او   = v => v === 'او';
-  const هي_و    = v => v === 'و';
-  const هي_صحيح = v => v === 'صحيح';
-  const هي_خطا  = v => v === 'خطا';
-  const هي_كسر  = v => v === 'كسر';
-  const هي_استمر = v => v === 'استمر';
-
-  const خريطة_مقارنة = {
-    'يساوي':'==','لا_يساوي':'!=','اكبر_من':'>','اصغر_من':'<',
-    'اكبر_او_يساوي':'>=','اصغر_او_يساوي':'<='
-  };
-  const هي_مقارنة_كلمة = v => v in خريطة_مقارنة;
-
   function parseProgram() { const b = []; while (peek().type !== 'نهاية') b.push(parseStatement()); return { type: 'برنامج', body: b }; }
-
   function parseStatement() {
     const t = peek();
     if (t.type === 'كلمة_محجوزة') {
-      if (['اضف_نص','اضف_عنوان','غير_اللون','اضف_زر','اضف_رابط','اضف_صوره','عين_الخط'].includes(t.value)) return parsePageCall();
+      if (['أضف_نص','أضف_عنوان','غير_اللون','أضف_زر','أضف_رابط','أضف_صورة','عيّن_الخط'].includes(t.value)) return parsePageCall();
       if (t.value === 'اطبع') return parsePrint();
       if (t.value === 'متغير') return parseVar();
-      if (هي_شرط(t.value)) return parseIf();
+      if (t.value === 'إذا') return parseIf();
       if (t.value === 'بينما') return parseWhile();
       if (t.value === 'كرر') return parseRepeat();
-      if (t.value === 'داله') return parseFunc();
-      if (هي_ارجع(t.value)) return parseReturn();
-      if (هي_كسر(t.value)) { consume(); return { type: 'كسر' }; }
-      if (هي_استمر(t.value)) { consume(); return { type: 'استمر' }; }
+      if (t.value === 'دالة') return parseFunc();
+      if (t.value === 'إرجع') return parseReturn();
     }
     if (t.type === 'معرف' && peek(1).value === '=') { const n = consume().value; consume(); return { type: 'متغير', name: n, val: parseExpression() }; }
     return { type: 'تعبير', expr: parseExpression() };
   }
-
   function parsePageCall() {
     const n = consume().value; expect('(');
     const a = [];
@@ -279,51 +246,29 @@ function parse(tokens) {
   }
   function parsePrint() { consume(); expect('('); const e = parseExpression(); expect(')'); return { type: 'طباعة', expr: e }; }
   function parseVar() { consume(); const n = consume().value; let v = null; if (peek().value === '=') { consume(); v = parseExpression(); } return { type: 'متغير', name: n, val: v }; }
-  function parseIf() { consume(); expect('('); const c = parseExpression(); expect(')'); const b = parseBlock(); let a = null; if (هي_آخر(peek().value)) { consume(); a = parseBlock(); } return { type: 'شرط', cond: c, block: b, alt: a }; }
+  function parseIf() { consume(); expect('('); const c = parseExpression(); expect(')'); const b = parseBlock(); let a = null; if (peek().value === 'آخر') { consume(); a = parseBlock(); } return { type: 'شرط', cond: c, block: b, alt: a }; }
   function parseWhile() { consume(); expect('('); const c = parseExpression(); expect(')'); return { type: 'بينما', cond: c, block: parseBlock() }; }
   function parseRepeat() {
     consume();
-    if (peek().type === 'معرف' && peek(1).value === 'من') {
-      const n = consume().value; consume();
-      const f = parseExpression();
-      if (!هي_الى(peek().value)) throw new Error('متوقع "الى" أو "إلى"');
-      consume();
-      const t = parseExpression();
-      return { type: 'كرر_من_إلى', name: n, from: f, to: t, block: parseBlock() };
-    }
+    if (peek().type === 'معرف' && peek(1).value === 'من') { const n = consume().value; consume(); const f = parseExpression(); consume(); const t = parseExpression(); return { type: 'كرر_من_إلى', name: n, from: f, to: t, block: parseBlock() }; }
     return { type: 'كرر', count: parseExpression(), block: parseBlock() };
   }
   function parseFunc() { consume(); const n = consume().value; expect('('); const p = []; while (peek().value !== ')') { p.push(consume().value); if (peek().value === ',' || peek().value === '،') consume(); else break; } expect(')'); return { type: 'دالة', name: n, params: p, block: parseBlock() }; }
   function parseReturn() { consume(); if (peek().value === '}' || peek().type === 'نهاية') return { type: 'إرجع', expr: null }; return { type: 'إرجع', expr: parseExpression() }; }
   function parseBlock() { expect('{'); const b = []; while (peek().value !== '}') b.push(parseStatement()); expect('}'); return { type: 'كتلة', body: b }; }
   function parseExpression() { return parseOr(); }
-  function parseOr() { let l = parseAnd(); while (هي_او(peek().value)) { consume(); l = { type:'ثنائي', op:'أو', l, r: parseAnd() }; } return l; }
-  function parseAnd() { let l = parseComp(); while (هي_و(peek().value)) { consume(); l = { type:'ثنائي', op:'و', l, r: parseComp() }; } return l; }
-  function parseComp() {
-    let l = parseAdd();
-    while (['==','!=','>','<','>=','<='].includes(peek().value) || هي_مقارنة_كلمة(peek().value)) {
-      let op = consume().value;
-      if (هي_مقارنة_كلمة(op)) op = خريطة_مقارنة[op];
-      l = { type:'ثنائي', op, l, r: parseAdd() };
-    }
-    return l;
-  }
+  function parseOr() { let l = parseAnd(); while (peek().value === 'أو') { consume(); l = { type:'ثنائي', op:'أو', l, r: parseAnd() }; } return l; }
+  function parseAnd() { let l = parseComp(); while (peek().value === 'و') { consume(); l = { type:'ثنائي', op:'و', l, r: parseComp() }; } return l; }
+  function parseComp() { let l = parseAdd(); while (['==','!=','>','<','>=','<='].includes(peek().value)) { const op = consume().value; l = { type:'ثنائي', op, l, r: parseAdd() }; } return l; }
   function parseAdd() { let l = parseMul(); while (peek().value === '+' || peek().value === '-') { const op = consume().value; l = { type:'ثنائي', op, l, r: parseMul() }; } return l; }
   function parseMul() { let l = parseUnary(); while (['*','/','%'].includes(peek().value)) { const op = consume().value; l = { type:'ثنائي', op, l, r: parseUnary() }; } return l; }
-  function parseUnary() {
-    if (peek().value === '-') { consume(); return { type:'أحادي', op:'-', expr: parseUnary() }; }
-    if (peek().value === '!') { consume(); return { type:'أحادي', op:'!', expr: parseUnary() }; }
-    if (peek().value === 'ليس') { consume(); return { type:'أحادي', op:'!', expr: parseUnary() }; }
-    return parseCall();
-  }
+  function parseUnary() { if (peek().value === '-') { consume(); return { type:'أحادي', op:'-', expr: parseUnary() }; } if (peek().value === '!') { consume(); return { type:'أحادي', op:'!', expr: parseUnary() }; } return parseCall(); }
   function parseCall() { let e = parsePrim(); while (peek().value === '(') { consume(); const a = []; while (peek().value !== ')') { a.push(parseExpression()); if (peek().value === ',' || peek().value === '،') consume(); else break; } expect(')'); e = { type:'استدعاء_دالة', callee: e, args: a }; } return e; }
   function parsePrim() {
     const t = peek();
     if (!t || t.type === 'نهاية') throw new Error('تعبير غير مكتمل');
     if (t.type === 'رقم') { consume(); return { type:'رقم', val: parseFloat(t.value) }; }
     if (t.type === 'نص') { consume(); return { type:'نص', val: t.value }; }
-    if (هي_صحيح(t.value)) { consume(); return { type:'رقم', val: true }; }
-    if (هي_خطا(t.value)) { consume(); return { type:'رقم', val: false }; }
     if (t.value === '(') { consume(); const e = parseExpression(); expect(')'); return e; }
     if (t.value === '[') { consume(); const items = []; while (peek().value !== ']') { items.push(parseExpression()); if (peek().value === ',' || peek().value === '،') consume(); else break; } expect(']'); return { type:'مصفوفة', items }; }
     if (t.type === 'معرف' || t.type === 'كلمة_محجوزة') { consume(); return { type:'متغير_مرجع', name: t.value }; }
@@ -337,12 +282,7 @@ function تنفيذ(ast, طباعة) {
   const صندوق = document.getElementById('مخرجات_الويب');
   const بيئة_عالمية = {};
   const دوال = {};
-  const تنسيق = v => {
-    if (v === null || v === undefined) return '';
-    if (typeof v === 'boolean') return v ? 'صحيح' : 'خطا';
-    if (Array.isArray(v)) return '[' + v.map(تنسيق).join('، ') + ']';
-    return String(v);
-  };
+  const تنسيق = v => { if (v === null || v === undefined) return ''; if (typeof v === 'boolean') return v ? 'صحيح' : 'خطأ'; if (Array.isArray(v)) return '[' + v.map(تنسيق).join('، ') + ']'; return String(v); };
 
   function قيمة(عقدة, بيئة) {
     if (!عقدة) return null;
@@ -386,17 +326,6 @@ function تنفيذ(ast, طباعة) {
     return null;
   }
 
-  function نفّذ_جسم_الحلقة(block, بيئة) {
-    try { نفّذ_عقدة(block, بيئة); }
-    catch (e) {
-      if (e && e.__إرجع) throw e;
-      if (e && e.__كسر) return 'كسر';
-      if (e && e.__استمر) return 'استمر';
-      throw e;
-    }
-    return null;
-  }
-
   function نفّذ_عقدة(عقدة, بيئة) {
     if (!عقدة) return;
     switch (عقدة.type) {
@@ -406,38 +335,11 @@ function تنفيذ(ast, طباعة) {
       case 'تعبير': قيمة(عقدة.expr, بيئة); break;
       case 'طباعة': طباعة(تحويل_الأرقام_للعربية(تنسيق(قيمة(عقدة.expr, بيئة)))); break;
       case 'شرط': if (قيمة(عقدة.cond, بيئة)) نفّذ_عقدة(عقدة.block, بيئة); else if (عقدة.alt) نفّذ_عقدة(عقدة.alt, بيئة); break;
-      case 'بينما': {
-        let ح = 0;
-        while (قيمة(عقدة.cond, بيئة)) {
-          const r = نفّذ_جسم_الحلقة(عقدة.block, بيئة);
-          if (r === 'كسر') break;
-          if (++ح > 100000) throw new Error('حلقة لا نهائية');
-        }
-        break;
-      }
-      case 'كرر': {
-        const n = Number(قيمة(عقدة.count, بيئة));
-        if (!Number.isFinite(n) || n < 0) throw new Error('عدد تكرارات غير صحيح');
-        for (let i = 0; i < n; i++) {
-          const r = نفّذ_جسم_الحلقة(عقدة.block, بيئة);
-          if (r === 'كسر') break;
-        }
-        break;
-      }
-      case 'كرر_من_إلى': {
-        const from = Number(قيمة(عقدة.from, بيئة));
-        const to = Number(قيمة(عقدة.to, بيئة));
-        for (let i = from; i <= to; i++) {
-          بيئة[عقدة.name] = i;
-          const r = نفّذ_جسم_الحلقة(عقدة.block, بيئة);
-          if (r === 'كسر') break;
-        }
-        break;
-      }
+      case 'بينما': { let ح = 0; while (قيمة(عقدة.cond, بيئة)) { نفّذ_عقدة(عقدة.block, بيئة); if (++ح > 100000) throw new Error('حلقة لا نهائية'); } break; }
+      case 'كرر': { const n = Number(قيمة(عقدة.count, بيئة)); if (!Number.isFinite(n) || n < 0) throw new Error('عدد تكرارات غير صحيح'); for (let i = 0; i < n; i++) نفّذ_عقدة(عقدة.block, بيئة); break; }
+      case 'كرر_من_إلى': { const from = Number(قيمة(عقدة.from, بيئة)); const to = Number(قيمة(عقدة.to, بيئة)); for (let i = from; i <= to; i++) { بيئة[عقدة.name] = i; نفّذ_عقدة(عقدة.block, بيئة); } break; }
       case 'دالة': دوال[عقدة.name] = { params: عقدة.params, block: عقدة.block }; break;
       case 'إرجع': throw { __إرجع: true, value: عقدة.expr ? قيمة(عقدة.expr, بيئة) : null };
-      case 'كسر': throw { __كسر: true };
-      case 'استمر': throw { __استمر: true };
       case 'استدعاء_صفحة': صفحة(عقدة, بيئة); break;
     }
   }
@@ -445,13 +347,13 @@ function تنفيذ(ast, طباعة) {
   function صفحة(عقدة, بيئة) {
     const ق = عقدة.args.map(a => قيمة(a, بيئة));
     switch (عقدة.name) {
-      case 'اضف_نص': { const p = document.createElement('p'); p.textContent = تحويل_الأرقام_للعربية(ق.join('')); صندوق.appendChild(p); break; }
-      case 'اضف_عنوان': { const h = document.createElement('h3'); h.textContent = تحويل_الأرقام_للعربية(ق.join('')); صندوق.appendChild(h); break; }
+      case 'أضف_نص': { const p = document.createElement('p'); p.textContent = تحويل_الأرقام_للعربية(ق.join('')); صندوق.appendChild(p); break; }
+      case 'أضف_عنوان': { const h = document.createElement('h3'); h.textContent = تحويل_الأرقام_للعربية(ق.join('')); صندوق.appendChild(h); break; }
       case 'غير_اللون': document.body.style.backgroundColor = String(ق[0] || '#f0f0f0'); break;
-      case 'اضف_زر': { const z = document.createElement('a'); z.href = String(ق[1] || '#'); z.target = '_blank'; z.rel = 'noopener'; z.className = 'زر-عين'; z.textContent = String(ق[0] || 'زر'); صندوق.appendChild(z); break; }
-      case 'اضف_رابط': { const l = document.createElement('a'); l.href = String(ق[1] || '#'); l.target = '_blank'; l.rel = 'noopener'; l.textContent = String(ق[0] || 'رابط'); صندوق.appendChild(document.createElement('br')); صندوق.appendChild(l); break; }
-      case 'اضف_صوره': { const i = document.createElement('img'); i.src = String(ق[0] || ''); i.alt = String(ق[1] || 'صوره'); i.title = i.alt; صندوق.appendChild(i); break; }
-      case 'عين_الخط': { صندوق.style.fontFamily = String(ق[0] || 'Tahoma'); صندوق.style.fontSize = ق[1] ? Number(ق[1]) + 'px' : '16px'; break; }
+      case 'أضف_زر': { const z = document.createElement('a'); z.href = String(ق[1] || '#'); z.target = '_blank'; z.rel = 'noopener'; z.className = 'زر-عين'; z.textContent = String(ق[0] || 'زر'); صندوق.appendChild(z); break; }
+      case 'أضف_رابط': { const l = document.createElement('a'); l.href = String(ق[1] || '#'); l.target = '_blank'; l.rel = 'noopener'; l.textContent = String(ق[0] || 'رابط'); صندوق.appendChild(document.createElement('br')); صندوق.appendChild(l); break; }
+      case 'أضف_صورة': { const i = document.createElement('img'); i.src = String(ق[0] || ''); i.alt = String(ق[1] || 'صورة'); i.title = i.alt; صندوق.appendChild(i); break; }
+      case 'عيّن_الخط': { صندوق.style.fontFamily = String(ق[0] || 'Tahoma'); صندوق.style.fontSize = ق[1] ? Number(ق[1]) + 'px' : '16px'; break; }
     }
   }
 
@@ -468,7 +370,7 @@ function شغل() {
   try {
     const رموز = tokenize(كود);
     const شجرة = parse(رموز);
-    تنفيذ(شجرة, r => { ناتج.innerText += r + '\n'; });
+    تنفيذ(شجرة, ر => { ناتج.innerText += ر + '\n'; });
   } catch (err) {
     ناتج.innerText = '❌ خطأ: ' + (err && err.message ? err.message : String(err));
   }
@@ -493,8 +395,10 @@ function انسخ() {
   if (!ن.trim()) { alert('لا يوجد نص لنسخه!'); return; }
   const بديل = () => {
     const ta = document.createElement('textarea');
-    ta.value = ن; ta.style.position = 'fixed'; ta.style.top = '-1000px';
-    document.body.appendChild(ta); ta.select();
+    ta.value = ن;
+    ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
     let ok = false;
     try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
     document.body.removeChild(ta);
@@ -508,5 +412,11 @@ function انسخ() {
 function امسح_الكود() { if (confirm('مسح الكود؟')) document.getElementById('كود_عين').value = ''; }
 function امسح_الناتج() { document.getElementById('الناتج').innerText = ''; document.getElementById('مخرجات_الويب').replaceChildren(); }
 </script>
+
+<!-- 🌟 عداد زوار Flag Counter في الزاوية اليمنى السفلية -->
+<div style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;">
+    <a href="https://info.flagcounter.com/CrtD"><img src="https://s01.flagcounter.com/count2/CrtD/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+</div>
+
 </body>
 </html>
