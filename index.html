@@ -29,9 +29,10 @@
     color: #333; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; border-bottom: 1px solid #eee; cursor: pointer;
   }
   .قائمة-منسدلة .محتوى-القائمة a:hover { background-color: #f1f1f1; color: #007bff; }
-  .قائمة-منسدلة:hover .محتوى-القائمة { display: block; }
+  /* تم تعطيل فتح القائمة بالتمرير لأنها لا تعمل جيداً على الجوال */
+  /* .قائمة-منسدلة:hover .محتوى-القائمة { display: block; } */
 
-  /* ============ 🌟 الأقسام (المحرر / المكتبة / من نحن ...) ============ */
+  /* ============ 🌟 الأقسام ============ */
   .قسم { display: none; }
   .قسم.نشط { display: block; }
 
@@ -92,7 +93,7 @@
   <nav class="شريط-التنقل">
     <span class="شعار" onclick="اظهار_قسم('المحرر')">لغة عين</span>
     <div class="قائمة-منسدلة">
-      <button class="زر-القائمة">القائمة ▼</button>
+      <button class="زر-القائمة" onclick="تبديل_القائمة()">القائمة ▼</button>
       <div class="محتوى-القائمة">
         <a onclick="اظهار_قسم('المحرر')">🏠 المحرر الرئيسي</a>
         <a onclick="اظهار_قسم('المكتبة')">📚 مكتبة الأكواد</a>
@@ -291,11 +292,27 @@
   </div>
 
 <script>
+// ============ 🌟 فتح وإغلاق القائمة المنسدلة بالضغط ============
+function تبديل_القائمة() {
+  const قائمة = document.querySelector('.محتوى-القائمة');
+  if (قائمة.style.display === 'block') {
+    قائمة.style.display = 'none';
+  } else {
+    قائمة.style.display = 'block';
+  }
+}
+// إغلاق القائمة عند الضغط في أي مكان خارجها
+document.addEventListener('click', function(حدث) {
+  const قائمة = document.querySelector('.قائمة-منسدلة');
+  const محتوى = document.querySelector('.محتوى-القائمة');
+  if (قائمة && !قائمة.contains(حدث.target)) {
+    محتوى.style.display = 'none';
+  }
+});
+
 // ============ 🌟 التنقل بين الأقسام ============
 function اظهار_قسم(اسم_القسم) {
-  // إخفاء كل الأقسام
   document.querySelectorAll('.قسم').forEach(ق => ق.classList.remove('نشط'));
-  // إظهار القسم المطلوب
   const خريطة = {
     'المحرر': 'قسم_المحرر',
     'المكتبة': 'قسم_المكتبة',
@@ -305,7 +322,6 @@ function اظهار_قسم(اسم_القسم) {
   };
   const عنصر = document.getElementById(خريطة[اسم_القسم]);
   if (عنصر) عنصر.classList.add('نشط');
-  // إغلاق القائمة المنسدلة
   document.querySelector('.محتوى-القائمة').style.display = 'none';
 }
 
