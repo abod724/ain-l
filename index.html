@@ -5,13 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="logo.png" type="image/png">
 <title>لغة عين للبرمجة | تعلم البرمجة بالعربية والمقارنة مع بايثون</title>
-<meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة، مع شرح تعليمي ومقارنة مع لغة بايثون. اكتب كودك بالعربي وشغّله مباشرة، وتعلم كيف تكتبه بالإنجليزية.">
-<meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, لغة برمجة عربية, تعلم بايثون, مكتبة أكواد, برمجة للمبتدئين">
+<meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة، مع شرح تعليمي ومقارنة مع لغة بايثون.">
+<meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, تعلم بايثون, مكتبة أكواد">
 <style>
   * { box-sizing: border-box; }
   body { font-family: Tahoma, sans-serif; padding: 20px; padding-bottom: 100px; background: #f0f0f0; }
 
-  /* ============ 🌟 شريط التنقل العلوي ============ */
   .شريط-التنقل {
     background: #ffffff; padding: 10px 20px; border-radius: 8px; margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
@@ -30,11 +29,9 @@
   }
   .قائمة-منسدلة .محتوى-القائمة a:hover { background-color: #f1f1f1; color: #007bff; }
 
-  /* ============ 🌟 الأقسام ============ */
   .قسم { display: none; }
   .قسم.نشط { display: block; }
 
-  /* ============ 🌟 تنسيقات المحرر ============ */
   textarea { width: 100%; height: 320px; font-family: 'Consolas', monospace; font-size: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; line-height: 1.7; }
   #الناتج { white-space: pre-wrap; background: #fff; color: #333; padding: 10px; margin-top: 10px; border-radius: 5px; min-height: 50px; border: 1px solid #ccc; font-family: 'Consolas', monospace; }
   #مخرجات_الويب { background: #fff; padding: 15px; margin-top: 10px; border: 2px dashed #007bff; border-radius: 8px; min-height: 100px; }
@@ -54,7 +51,6 @@
   .hint { color: #666; font-size: 13px; }
   .أزرار { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 
-  /* ============ 🌟 تنسيقات مكتبة الأكواد ============ */
   .كارت-كود {
     background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -70,9 +66,15 @@
   .زر-نسخ-صغير:hover { background: #1e7e34; }
   .صفحة-نص { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); line-height: 1.8; margin-bottom: 20px; }
   .صفحة-نص h3 { color: #007bff; margin-top: 0; }
-  .صفحة-نص h4 { color: #333; margin-top: 20px; border-right: 4px solid #007bff; padding-right: 10px; }
   .صفحة-نص .مقارنة { background: #f8f9fa; border-right: 4px solid #28a745; padding: 10px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', monospace; direction: ltr; text-align: left; }
   .صفحة-نص .مقارنة strong { color: #28a745; }
+
+  .نموذج-مشاركة { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  .نموذج-مشاركة label { display: block; margin: 10px 0 5px; font-weight: bold; color: #333; }
+  .نموذج-مشاركة input, .نموذج-مشاركة textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: Tahoma, sans-serif; }
+  .نموذج-مشاركة textarea { height: 150px; font-family: 'Consolas', monospace; }
+  .زر-ارسال { background: #28a745; color: #fff; padding: 12px 24px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 15px; width: 100%; }
+  .زر-ارسال:hover { background: #1e7e34; }
 
   .أيقونة-نبراس {
     position: fixed; bottom: 20px; left: 20px; z-index: 999; padding: 14px 28px;
@@ -90,7 +92,6 @@
 </head>
 <body>
 
-  <!-- 🌟 شريط التنقل العلوي -->
   <nav class="شريط-التنقل">
     <span class="شعار" onclick="اظهار_قسم('المحرر')">لغة عين</span>
     <div class="قائمة-منسدلة">
@@ -99,6 +100,7 @@
         <a onclick="اظهار_قسم('المحرر')">🏠 المحرر الرئيسي</a>
         <a onclick="اظهار_قسم('التعلم')">📖 تعلم البرمجة</a>
         <a onclick="اظهار_قسم('المكتبة')">📚 مكتبة الأكواد</a>
+        <a onclick="اظهار_قسم('شارك')">💬 شارك كودك</a>
         <a onclick="اظهار_قسم('من_نحن')">ℹ️ من نحن</a>
         <a onclick="اظهار_قسم('اتصل_بنا')">📞 اتصل بنا</a>
         <a onclick="اظهار_قسم('سياسة_الخصوصية')">🔒 سياسة الخصوصية</a>
@@ -106,10 +108,8 @@
     </div>
   </nav>
 
-  <!-- 🌟 أيقونة نبراس العائمة -->
   <a href="https://nibras-al.onrender.com/" target="_blank" rel="noopener" class="أيقونة-نبراس">نبراس GP</a>
 
-  <!-- ================== قسم المحرر الرئيسي ================== -->
   <div id="قسم_المحرر" class="قسم نشط">
     <h1>لغة عين للبرمجة</h1>
     <p class="hint">اكتب كودك أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
@@ -117,43 +117,32 @@
     <textarea id="كود_عين">غير_اللون("#eef2ff")
 أضف_عنوان("🐍 لغة عين للبرمجة")
 
-# متغيرات
 الاسم = "عبدالله"
 العمر = ٢٥
-المدينة = "الرياض"
-
 اطبع("أهلاً " + الاسم)
-اطبع("عمرك: " + العمر)
-اطبع("من " + المدينة)
 
-# شرط
 إذا (العمر >= ١٨) {
   اطبع("أنت بالغ ✅")
 } آخر {
   اطبع("أنت قاصر ❌")
 }
 
-# دالة
 دالة تحية(شخص) {
   إرجع "مرحبًا يا " + شخص
 }
 اطبع(تحية("سارة"))
 
-# حلقة
 كرر ع من ١ إلى ٥ {
   اطبع("العدد: " + ع)
 }
 
-# مكتبات
 اطبع("جذر ٤٩ = " + جذر(٤٩))
 اطبع("٣ أس ٤ = " + قوة(٣، ٤))
-اطبع("عشوائي (١، ١٠٠) = " + عشوائي(١، ١٠٠))
+اطبع("عشوائي = " + عشوائي(١، ١٠٠))
 
-# قائمة
 أرقام = [١٠، ٢٠، ٣٠، ٤٠]
 اطبع("مجموع الأرقام: " + مجموع(أرقام))
 
-# صفحة
 أضف_زر("نبراس GP", "https://nibras-al.onrender.com/")
 أضف_رابط("Google", "https://google.com")
 أضف_صورة("https://picsum.photos/400/180", "صورة")
@@ -174,230 +163,167 @@
     <div id="مخرجات_الويب"></div>
   </div>
 
-  <!-- ================== قسم تعلم البرمجة ================== -->
   <div id="قسم_التعلم" class="قسم">
     <h1>📖 تعلم البرمجة بالعربي مع مقارنة بايثون</h1>
-    <p class="hint">هنا نشرح المفاهيم الأساسية بالعربي، ثم نريك كيف تكتبها بلغة بايثون الاحترافية.</p>
+    <p class="hint">هنا نشرح المفاهيم الأساسية بالعربي، ثم نريك كيف تكتبها بلغة بايثون.</p>
 
-    <!-- درس 1: المتغيرات -->
     <div class="صفحة-نص">
-      <h3>الدرس الأول: المتغيرات (المتغيرات)</h3>
-      <p><strong>ما هو المتغير؟</strong> المتغير هو "صندوق" نضع فيه قيمة (مثل رقم أو نص)، ونعطيه اسماً. عندما نريد استخدام هذه القيمة لاحقاً، ننادي على اسم الصندوق.</p>
+      <h3>الدرس الأول: المتغيرات</h3>
+      <p><strong>ما هو المتغير؟</strong> المتغير هو "صندوق" نضع فيه قيمة، ونعطيه اسماً.</p>
       <p><strong>في لغة عين:</strong></p>
       <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">الاسم = "عبدالله"
 العمر = ٢٥
 اطبع("أهلاً " + الاسم)</pre>
-      <p><strong>في لغة بايثون (Python):</strong> نفس الفكرة تماماً، لكن الأسماء بالإنجليزية والأرقام بالإنجليزية.</p>
+      <p><strong>في لغة بايثون:</strong></p>
       <div class="مقارنة">
-        <strong>الاسم = "عبدالله"</strong><br>
-        <strong>العمر = 25</strong><br>
-        <strong>print("أهلاً " + الاسم)</strong>
+        <strong>name = "Abdullah"</strong><br>
+        <strong>age = 25</strong><br>
+        <strong>print("Hello " + name)</strong>
       </div>
-      <p><strong>الخلاصة:</strong> المتغير هو أساس أي برنامج. تعلمت كيف تخزن قيمة وتستخدمها.</p>
     </div>
 
-    <!-- درس 2: الشروط -->
     <div class="صفحة-نص">
-      <h3>الدرس الثاني: الشروط (if / else)</h3>
-      <p><strong>ما هي الشروط؟</strong> هي طريقة تجعل البرنامج يتخذ قراراً. "إذا" تحقق شرط معين، نفذ شيئاً. "آخر" (وإلا)، نفذ شيئاً آخر.</p>
+      <h3>الدرس الثاني: الشروط</h3>
+      <p><strong>ما هي الشروط؟</strong> هي طريقة تجعل البرنامج يتخذ قراراً.</p>
       <p><strong>في لغة عين:</strong></p>
       <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">إذا (العمر >= ١٨) {
   اطبع("أنت بالغ")
 } آخر {
   اطبع("أنت قاصر")
 }</pre>
-      <p><strong>في لغة بايثون:</strong> لاحظ أن بايثون تستخدم `if` و `else` و `:` بدلاً من الأقواس.</p>
+      <p><strong>في لغة بايثون:</strong></p>
       <div class="مقارنة">
         <strong>if age >= 18:</strong><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("أنت بالغ")</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("You are adult")</strong><br>
         <strong>else:</strong><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("أنت قاصر")</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("You are minor")</strong>
       </div>
-      <p><strong>الخلاصة:</strong> الشروط تجعل برنامجك "يفكر" ويتخذ قرارات.</p>
     </div>
-
-    <!-- درس 3: الحلقات -->
-    <div class="صفحة-نص">
-      <h3>الدرس الثالث: الحلقات (for / while)</h3>
-      <p><strong>ما هي الحلقات؟</strong> هي طريقة لتكرار كود معين عدة مرات دون كتابته يدوياً. مثلاً، اطبع الأرقام من 1 إلى 100.</p>
-      <p><strong>في لغة عين:</strong></p>
-      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">كرر ع من ١ إلى ٥ {
-  اطبع("العدد: " + ع)
-}</pre>
-      <p><strong>في لغة بايثون:</strong> تستخدم بايثون `for` و `range`.</p>
-      <div class="مقارنة">
-        <strong>for i in range(1, 6):</strong><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("العدد:", i)</strong>
-      </div>
-      <p><strong>الخلاصة:</strong> الحلقات توفر عليك كتابة كود طويل ومتكرر.</p>
-    </div>
-
-    <!-- درس 4: الدوال -->
-    <div class="صفحة-نص">
-      <h3>الدرس الرابع: الدوال (Functions)</h3>
-      <p><strong>ما هي الدوال؟</strong> الدالة هي مجموعة من الأكواد تعطيها اسماً، وتستدعيها عندما تحتاجها. تستطيع أن تمرر لها "مدخلات" وتعيد لك "مخرجات".</p>
-      <p><strong>في لغة عين:</strong></p>
-      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">دالة تحية(شخص) {
-  إرجع "مرحبًا يا " + شخص
-}
-اطبع(تحية("سارة"))</pre>
-      <p><strong>في لغة بايثون:</strong> تستخدم بايثون `def` و `return`.</p>
-      <div class="مقارنة">
-        <strong>def greet(name):</strong><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<strong>return "مرحبًا يا " + name</strong><br>
-        <strong>print(greet("سارة"))</strong>
-      </div>
-      <p><strong>الخلاصة:</strong> الدوال تجعل الكود منظماً وقابلاً لإعادة الاستخدام.</p>
-    </div>
-
   </div>
 
-  <!-- ================== قسم مكتبة الأكواد ================== -->
+  <!-- مكتبة الأكواد (تُبنى تلقائياً من ملف codes.js) -->
   <div id="قسم_المكتبة" class="قسم">
     <h1>📚 مكتبة الأكواد</h1>
     <p class="hint">انسخ أي كود من الأسفل، والصقه في المحرر الرئيسي، ثم اضغط "تشغيل" لتجربته.</p>
-
-    <div class="كارت-كود">
-      <h4>1. كود الترحيب</h4>
-      <p>اطبع رسالة ترحيبية باسمك.</p>
-      <pre id="كود1">اطبع("أهلاً بك يا عبدالله في لغة عين!")</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود1')">📋 نسخ الكود</button>
-    </div>
-
-    <div class="كارت-كود">
-      <h4>2. هل أنت بالغ؟</h4>
-      <p>شرط بسيط يتحقق من العمر.</p>
-      <pre id="كود2">العمر = ٢٠
-إذا (العمر >= ١٨) {
-  اطبع("أنت بالغ ✅")
-} آخر {
-  اطبع("أنت قاصر ❌")
-}</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود2')">📋 نسخ الكود</button>
-    </div>
-
-    <div class="كارت-كود">
-      <h4>3. حلقة الأرقام</h4>
-      <p>اطبع الأرقام من ١ إلى ٥.</p>
-      <pre id="كود3">كرر ع من ١ إلى ٥ {
-  اطبع("العدد: " + ع)
-}</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود3')">📋 نسخ الكود</button>
-    </div>
-
-    <div class="كارت-كود">
-      <h4>4. دالة الترحيب</h4>
-      <p>أنشئ دالة ترحب بأي شخص.</p>
-      <pre id="كود4">دالة تحية(شخص) {
-  إرجع "مرحبًا يا " + شخص
-}
-اطبع(تحية("سارة"))</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود4')">📋 نسخ الكود</button>
-    </div>
-
-    <div class="كارت-كود">
-      <h4>5. العمليات الحسابية</h4>
-      <p>جرب الجذر، القوة، والأرقام العشوائية.</p>
-      <pre id="كود5">اطبع("جذر ٤٩ = " + جذر(٤٩))
-اطبع("٣ أس ٤ = " + قوة(٣، ٤))
-اطبع("عشوائي = " + عشوائي(١، ١٠٠))</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود5')">📋 نسخ الكود</button>
-    </div>
-
-    <div class="كارت-كود">
-      <h4>6. القوائم والمجموع</h4>
-      <p>أنشئ قائمة أرقام واجمع عناصرها.</p>
-      <pre id="كود6">أرقام = [١٠، ٢٠، ٣٠، ٤٠]
-اطبع("مجموع الأرقام: " + مجموع(أرقام))</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود6')">📋 نسخ الكود</button>
-    </div>
-
-    <div class="كارت-كود">
-      <h4>7. إضافة صورة وزر</h4>
-      <p>أضف صورة وزراً إلى صفحة الويب.</p>
-      <pre id="كود7">أضف_صورة("https://picsum.photos/400/180", "صورة تجريبية")
-أضف_زر("زيارة Google", "https://google.com")</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود7')">📋 نسخ الكود</button>
-    </div>
-
-    <div class="كارت-كود">
-      <h4>8. تغيير لون الخلفية</h4>
-      <p>غيّر لون الخلفية إلى لون عشوائي.</p>
-      <pre id="كود8">غير_اللون("#ffe4e1")
-اطبع("تم تغيير اللون!")</pre>
-      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود8')">📋 نسخ الكود</button>
-    </div>
-
+    <div id="حاوية_الأكواد"></div>
   </div>
 
-  <!-- ================== قسم من نحن ================== -->
+  <div id="قسم_شارك" class="قسم">
+    <h1>💬 شارك كودك أو سؤالك</h1>
+    <p class="hint">اكتب كوداً برمجياً بلغة عين، أو اطرح سؤالاً. سيصلنا إرسالك، وسنراجعه وننشره في المنصة.</p>
+
+    <div class="نموذج-مشاركة">
+      <form action="https://formsubmit.co/nibrasalsd@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="كود جديد من منصة لغة عين">
+        <input type="hidden" name="_template" value="table">
+        
+        <label for="الاسم">اسمك (أو لقبك):</label>
+        <input type="text" id="الاسم" name="الاسم" placeholder="مثال: عبدالله" required>
+
+        <label for="الكود">اكتب الكود هنا (بلغة عين):</label>
+        <textarea id="الكود" name="الكود" placeholder='مثال:&#10;اطبع("مرحباً بالعالم!")' required></textarea>
+
+        <label for="الشرح">شرح بسيط للكود (اختياري):</label>
+        <input type="text" id="الشرح" name="الشرح" placeholder="مثال: كود يطبع ترحيباً">
+
+        <button type="submit" class="زر-ارسال">📤 إرسال الكود</button>
+      </form>
+    </div>
+  </div>
+
   <div id="قسم_من_نحن" class="قسم">
     <h1>ℹ️ من نحن</h1>
     <div class="صفحة-نص">
       <h3>لغة عين للبرمجة</h3>
-      <p>منصة عربية تهدف إلى تعليم أساسيات البرمجة للمبتدئين باللغة العربية. الفكرة تقوم على كتابة الأوامر البرمجية بالعربي بدلاً من الإنجليزية، لتسهيل الفهم على من يريد أن يتعلم البرمجة لأول مرة.</p>
-      <p>المنصة تدعم المتغيرات، الشروط، الحلقات، الدوال، المكتبات الرياضية والنصية، وأوامر صفحة الويب. كما توفر قسماً تعليمياً يشرح المفاهيم بالعربي ويقارنها بلغة بايثون.</p>
+      <p>منصة عربية تهدف إلى تعليم أساسيات البرمجة للمبتدئين باللغة العربية، مع مقارنة مع لغة بايثون.</p>
       <p>الهدف هو جعل البرمجة بسيطة ومتاحة للجميع، مع مكتبة أكواد جاهزة للتجربة والتعلم.</p>
     </div>
   </div>
 
-  <!-- ================== قسم اتصل بنا ================== -->
   <div id="قسم_اتصل_بنا" class="قسم">
     <h1>📞 اتصل بنا</h1>
     <div class="صفحة-نص">
       <h3>نرحب بتواصلك!</h3>
-      <p>إذا كان لديك أي سؤال، اقتراح، أو ملاحظة حول المنصة، يمكنك التواصل معنا مباشرة عبر:</p>
       <ul>
         <li><strong>البريد الإلكتروني:</strong> <a href="mailto:nibrasalsd@gmail.com">nibrasalsd@gmail.com</a></li>
         <li><strong>رقم الجوال / واتساب:</strong> <a href="https://wa.me/966569361182" target="_blank">0569361182</a></li>
       </ul>
-      <p>نسعد بخدمتكم والرد على استفساراتكم في أقرب وقت.</p>
     </div>
   </div>
 
-  <!-- ================== قسم سياسة الخصوصية ================== -->
   <div id="قسم_سياسة_الخصوصية" class="قسم">
     <h1>🔒 سياسة الخصوصية</h1>
     <div class="صفحة-نص">
       <h3>سياسة الخصوصية</h3>
-      <p>نحن في "لغة عين للبرمجة" نحترم خصوصية زوارنا. توضح هذه السياسة كيفية تعاملنا مع المعلومات:</p>
+      <p>نحن نحترم خصوصية زوارنا:</p>
       <ul>
-        <li><strong>البيانات التي نجمعها:</strong> لا نقوم بجمع أي بيانات شخصية عن المستخدمين بشكل مباشر. الأكواد التي يكتبها المستخدم في المحرر لا يتم حفظها على أي سيرفر، بل تعمل داخل المتصفح فقط.</li>
-        <li><strong>ملفات تعريف الارتباط (Cookies):</strong> نستخدم عداد زوار بسيط لعرض عدد الزيارات والدول. هذا العداد قد يستخدم ملفات تعريف ارتباط لأغراض إحصائية.</li>
-        <li><strong>روابط خارجية:</strong> قد يحتوي الموقع على روابط لمواقع خارجية، ونحن غير مسؤولين عن سياسات الخصوصية الخاصة بها.</li>
-        <li><strong>التغييرات على السياسة:</strong> قد نقوم بتحديث هذه السياسة من وقت لآخر، وسيتم نشر أي تغييرات على هذه الصفحة.</li>
+        <li>لا نجمع أي بيانات شخصية. الأكواد تعمل داخل المتصفح فقط.</li>
+        <li>نستخدم عداد زوار بسيط لعرض الإحصائيات.</li>
+        <li>قد يحتوي الموقع على روابط خارجية، ونحن غير مسؤولين عنها.</li>
       </ul>
-      <p>باستخدامك للموقع، فإنك توافق على هذه السياسة.</p>
     </div>
   </div>
 
+<!-- 🌟 ربط ملف الأكواد الخارجي -->
+<script src="codes.js"></script>
+
 <script>
-// ============ 🌟 فتح وإغلاق القائمة المنسدلة بالضغط ============
+// ============ 🌟 بناء مكتبة الأكواد تلقائياً من ملف codes.js ============
+function بناء_مكتبة_الأكواد() {
+  const حاوية = document.getElementById('حاوية_الأكواد');
+  if (!حاوية || typeof مكتبة_الأكواد === 'undefined') return;
+  
+  حاوية.innerHTML = '';
+  
+  مكتبة_الأكواد.forEach((كود, رقم) => {
+    const كارت = document.createElement('div');
+    كارت.className = 'كارت-كود';
+    
+    const عنوان = document.createElement('h4');
+    عنوان.textContent = كود.عنوان;
+    
+    const شرح = document.createElement('p');
+    شرح.textContent = كود.شرح;
+    
+    const pre = document.createElement('pre');
+    pre.id = 'كود_' + رقم;
+    pre.textContent = كود.كود;
+    
+    const زر_نسخ = document.createElement('button');
+    زر_نسخ.className = 'زر-نسخ-صغير';
+    زر_نسخ.textContent = '📋 نسخ الكود';
+    زر_نسخ.onclick = () => نسخ_كود('كود_' + رقم);
+    
+    كارت.appendChild(عنوان);
+    كارت.appendChild(شرح);
+    كارت.appendChild(pre);
+    كارت.appendChild(زر_نسخ);
+    حاوية.appendChild(كارت);
+  });
+}
+
+// استدعاء الدالة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', بناء_مكتبة_الأكواد);
+// نسخة احتياطية في حال تأخر تحميل codes.js
+window.addEventListener('load', بناء_مكتبة_الأكواد);
+
+// ============ باقي الدوال ============
 function تبديل_القائمة() {
   const قائمة = document.querySelector('.محتوى-القائمة');
-  if (قائمة.style.display === 'block') {
-    قائمة.style.display = 'none';
-  } else {
-    قائمة.style.display = 'block';
-  }
+  قائمة.style.display = قائمة.style.display === 'block' ? 'none' : 'block';
 }
 document.addEventListener('click', function(حدث) {
   const قائمة = document.querySelector('.قائمة-منسدلة');
   const محتوى = document.querySelector('.محتوى-القائمة');
-  if (قائمة && !قائمة.contains(حدث.target)) {
-    محتوى.style.display = 'none';
-  }
+  if (قائمة && !قائمة.contains(حدث.target)) محتوى.style.display = 'none';
 });
 
-// ============ 🌟 التنقل بين الأقسام ============
 function اظهار_قسم(اسم_القسم) {
   document.querySelectorAll('.قسم').forEach(ق => ق.classList.remove('نشط'));
   const خريطة = {
-    'المحرر': 'قسم_المحرر',
-    'التعلم': 'قسم_التعلم',
-    'المكتبة': 'قسم_المكتبة',
-    'من_نحن': 'قسم_من_نحن',
-    'اتصل_بنا': 'قسم_اتصل_بنا',
+    'المحرر': 'قسم_المحرر', 'التعلم': 'قسم_التعلم', 'المكتبة': 'قسم_المكتبة',
+    'شارك': 'قسم_شارك', 'من_نحن': 'قسم_من_نحن', 'اتصل_بنا': 'قسم_اتصل_بنا',
     'سياسة_الخصوصية': 'قسم_سياسة_الخصوصية'
   };
   const عنصر = document.getElementById(خريطة[اسم_القسم]);
@@ -405,7 +331,6 @@ function اظهار_قسم(اسم_القسم) {
   document.querySelector('.محتوى-القائمة').style.display = 'none';
 }
 
-// ============ 🌟 نسخ كود من المكتبة ============
 function نسخ_كود(معرف_العنصر) {
   const كود = document.getElementById(معرف_العنصر).innerText;
   if (navigator.clipboard && window.isSecureContext) {
@@ -423,7 +348,7 @@ function نسخ_كود(معرف_العنصر) {
   }
 }
 
-// ============ 🌟 باقي دوال المحرر ============
+// ============ محرك اللغة ============
 const خريطة_ع_إ = {'٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9'};
 const خريطة_إ_ع = {'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
 const تحويل_الأرقام_للإنجليزية = ن => ن.replace(/[٠-٩]/g, ح => خريطة_ع_إ[ح]);
