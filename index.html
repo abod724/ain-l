@@ -207,7 +207,6 @@
     <div id="حاوية_الأكواد"></div>
   </div>
 
-  <!-- قسم شارك كودك (مع رسالة التأكيد) -->
   <div id="قسم_شارك" class="قسم">
     <h1>💬 شارك كودك أو سؤالك</h1>
     <p class="hint">اكتب كوداً برمجياً بلغة عين، أو اطرح سؤالاً. سيصلنا إرسالك، وسنراجعه وننشره في المنصة.</p>
@@ -465,23 +464,16 @@ document.addEventListener('DOMContentLoaded', بناء_مكتبة_الأكواد
 
 // ============ 🌟 رسالة تأكيد الإرسال ============
 function عرض_رسالة_التأكيد(حدث) {
-  // إظهار الرسالة فوراً
   const رسالة = document.getElementById('رسالة_تأكيد');
   رسالة.style.display = 'block';
-  
-  // تمرير الصفحة إلى الأعلى لرؤية الرسالة
   رسالة.scrollIntoView({ behavior: 'smooth', block: 'center' });
   
-  // مسح الحقول (اختياري)
   setTimeout(() => {
     document.getElementById('الاسم').value = '';
     document.getElementById('الكود').value = '';
     document.getElementById('الشرح').value = '';
   }, 1000);
   
-  // نترك النموذج يكمل الإرسال في الخلفية دون مغادرة الصفحة
-  // (لن نستخدم preventDefault، بل نستخدم iframe مخفي للإرسال)
-  // الحل: نرسل النموذج في iframe مخفي
   حدث.preventDefault();
   const نموذج = حدث.target;
   const iframe = document.createElement('iframe');
@@ -798,9 +790,9 @@ function امسح_الكود() { if (confirm('مسح الكود؟')) document.ge
 function امسح_الناتج() { document.getElementById('الناتج').innerText = ''; document.getElementById('مخرجات_الويب').replaceChildren(); }
 </script>
 
-<!-- 🌟 عداد زوار Flag Counter -->
+<!-- 🌟 عداد زوار Flag Counter (يفتح في نافذة جديدة) -->
 <div style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #fff; border-radius: 8px; padding: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-    <a href="https://info.flagcounter.com/RlJ8">
+    <a href="https://info.flagcounter.com/RlJ8" target="_blank" rel="noopener">
         <img src="https://s05.flagcounter.com/count2/RlJ8/bg_FFFFFF/txt_000000/border_CCCCCC/columns_1/maxflags_3/viewers_3/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="width: 100px; height: auto; display: block; border-radius: 5px;">
     </a>
 </div>
