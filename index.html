@@ -3,16 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- ✅ أيقونة الموقع (Favicon) -->
 <link rel="icon" href="logo.png" type="image/png">
 <title>لغة عين للبرمجة | تعلم البرمجة بالعربية للمبتدئين</title>
-<!-- ✅ وصف الصفحة (يظهر في نتائج بحث جوجل) -->
-<meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة. اكتب كودك بالعربي وشغّله مباشرة. تدعم المتغيرات، الشروط، الحلقات، والدوال.">
-<!-- ✅ الكلمات المفتاحية -->
-<meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, لغة برمجة عربية, أكواد عربية, برمجة للمبتدئين">
+<meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة. اكتب كودك بالعربي وشغّله مباشرة، مع مكتبة أكواد جاهزة للمبتدئين.">
+<meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, لغة برمجة عربية, مكتبة أكواد, برمجة للمبتدئين">
 <style>
   * { box-sizing: border-box; }
-  body { font-family: Tahoma, sans-serif; padding: 20px; padding-bottom: 100px; background: #f0f0f0; transition: background-color 0.5s; }
+  body { font-family: Tahoma, sans-serif; padding: 20px; padding-bottom: 100px; background: #f0f0f0; }
+
+  /* ============ 🌟 شريط التنقل العلوي ============ */
+  .شريط-التنقل {
+    background: #ffffff; padding: 10px 20px; border-radius: 8px; margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  }
+  .شريط-التنقل .شعار { font-weight: bold; color: #007bff; font-size: 18px; cursor: pointer; }
+  .قائمة-منسدلة { position: relative; display: inline-block; }
+  .قائمة-منسدلة .زر-القائمة {
+    background: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; font-family: Tahoma, sans-serif; font-size: 14px;
+  }
+  .قائمة-منسدلة .محتوى-القائمة {
+    display: none; position: absolute; right: 0; background-color: #fff; min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-radius: 5px; z-index: 1000; overflow: hidden;
+  }
+  .قائمة-منسدلة .محتوى-القائمة a {
+    color: #333; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; border-bottom: 1px solid #eee; cursor: pointer;
+  }
+  .قائمة-منسدلة .محتوى-القائمة a:hover { background-color: #f1f1f1; color: #007bff; }
+  .قائمة-منسدلة:hover .محتوى-القائمة { display: block; }
+
+  /* ============ 🌟 الأقسام (المحرر / المكتبة / من نحن ...) ============ */
+  .قسم { display: none; }
+  .قسم.نشط { display: block; }
+
+  /* ============ 🌟 تنسيقات المحرر ============ */
   textarea { width: 100%; height: 320px; font-family: 'Consolas', monospace; font-size: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; line-height: 1.7; }
   #الناتج { white-space: pre-wrap; background: #fff; color: #333; padding: 10px; margin-top: 10px; border-radius: 5px; min-height: 50px; border: 1px solid #ccc; font-family: 'Consolas', monospace; }
   #مخرجات_الويب { background: #fff; padding: 15px; margin-top: 10px; border: 2px dashed #007bff; border-radius: 8px; min-height: 100px; }
@@ -30,59 +53,65 @@
   #مخرجات_الويب a:hover { text-decoration: underline; }
   #مخرجات_الويب img { max-width:100%; border-radius:6px; margin:10px 0; }
   .hint { color: #666; font-size: 13px; }
+  .أزرار { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 
-  /* الأزرار في صف واحد */
-  .أزرار {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 10px;
+  /* ============ 🌟 تنسيقات مكتبة الأكواد ============ */
+  .كارت-كود {
+    background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
+  .كارت-كود h4 { margin: 0 0 8px 0; color: #007bff; }
+  .كارت-كود p { font-size: 13px; color: #555; margin: 0 0 10px 0; }
+  .كارت-كود pre {
+    background: #f8f9fa; border: 1px solid #eee; border-radius: 5px; padding: 10px;
+    font-family: 'Consolas', monospace; font-size: 14px; white-space: pre-wrap; word-break: break-word;
+    direction: rtl; text-align: right; margin: 0 0 10px 0; line-height: 1.6;
+  }
+  .زر-نسخ-صغير { background: #28a745; color: #fff; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 13px; }
+  .زر-نسخ-صغير:hover { background: #1e7e34; }
+  .صفحة-نص { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); line-height: 1.8; }
+  .صفحة-نص h3 { color: #007bff; margin-top: 0; }
 
-  /* ============ 🌟 أيقونة نبراس العائمة ============ */
   .أيقونة-نبراس {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 999;
-    padding: 14px 28px;
-    background: linear-gradient(135deg, #4f46e5, #7c3aed);
-    color: #fff;
-    border-radius: 50px;
-    text-decoration: none;
-    font-family: Tahoma, sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    position: fixed; bottom: 20px; left: 20px; z-index: 999; padding: 14px 28px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff;
+    border-radius: 50px; text-decoration: none; font-family: Tahoma, sans-serif;
+    font-weight: 700; font-size: 15px; box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+    transition: all 0.3s ease; cursor: pointer;
   }
-  .أيقونة-نبراس:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 28px rgba(79, 70, 229, 0.65);
-  }
+  .أيقونة-نبراس:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 28px rgba(79, 70, 229, 0.65); }
   @media (max-width: 600px) {
     body { padding-bottom: 90px; }
-    .أيقونة-نبراس {
-      bottom: 14px;
-      left: 14px;
-      padding: 12px 22px;
-      font-size: 14px;
-    }
+    .أيقونة-نبراس { bottom: 14px; left: 14px; padding: 12px 22px; font-size: 14px; }
   }
 </style>
 </head>
 <body>
 
+  <!-- 🌟 شريط التنقل العلوي -->
+  <nav class="شريط-التنقل">
+    <span class="شعار" onclick="اظهار_قسم('المحرر')">لغة عين</span>
+    <div class="قائمة-منسدلة">
+      <button class="زر-القائمة">القائمة ▼</button>
+      <div class="محتوى-القائمة">
+        <a onclick="اظهار_قسم('المحرر')">🏠 المحرر الرئيسي</a>
+        <a onclick="اظهار_قسم('المكتبة')">📚 مكتبة الأكواد</a>
+        <a onclick="اظهار_قسم('من_نحن')">ℹ️ من نحن</a>
+        <a onclick="اظهار_قسم('اتصل_بنا')">📞 اتصل بنا</a>
+        <a onclick="اظهار_قسم('سياسة_الخصوصية')">🔒 سياسة الخصوصية</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- 🌟 أيقونة نبراس العائمة -->
-  <a href="https://nibras-al.onrender.com/" target="_blank" rel="noopener" class="أيقونة-نبراس">
-    نبراس GP
-  </a>
+  <a href="https://nibras-al.onrender.com/" target="_blank" rel="noopener" class="أيقونة-نبراس">نبراس GP</a>
 
-  <h1>لغة عين للبرمجة</h1>
-  <p class="hint">اكتب كودك بالعربي أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
+  <!-- ================== قسم المحرر الرئيسي ================== -->
+  <div id="قسم_المحرر" class="قسم نشط">
+    <h1>لغة عين للبرمجة</h1>
+    <p class="hint">اكتب كودك أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
 
-  <textarea id="كود_عين">غير_اللون("#eef2ff")
+    <textarea id="كود_عين">غير_اللون("#eef2ff")
 أضف_عنوان("🐍 لغة عين للبرمجة")
 
 # متغيرات
@@ -127,28 +156,183 @@
 أضف_صورة("https://picsum.photos/400/180", "صورة")
 اطبع("✅ تم")</textarea>
 
-  <div class="أزرار">
-    <button class="btn-primary" onclick="شغل()">▶ تشغيل</button>
-    <button class="btn-warning" onclick="احفظ()">💾 حفظ الكود</button>
-    <button class="btn-success" onclick="انسخ()">📋 نسخ الناتج</button>
-    <button class="btn-danger" onclick="امسح_الكود()">🗑️ مسح الكود</button>
-    <button class="btn-danger" onclick="امسح_الناتج()">🧹 مسح الناتج</button>
+    <div class="أزرار">
+      <button class="btn-primary" onclick="شغل()">▶ تشغيل</button>
+      <button class="btn-warning" onclick="احفظ()">💾 حفظ الكود</button>
+      <button class="btn-success" onclick="انسخ()">📋 نسخ الناتج</button>
+      <button class="btn-danger" onclick="امسح_الكود()">🗑️ مسح الكود</button>
+      <button class="btn-danger" onclick="امسح_الناتج()">🧹 مسح الناتج</button>
+    </div>
+
+    <h2>📟 الناتج:</h2>
+    <div id="الناتج"></div>
+
+    <h2>🖥️ معاينة الصفحة:</h2>
+    <div id="مخرجات_الويب"></div>
   </div>
 
-  <h2>📟 الناتج:</h2>
-  <div id="الناتج"></div>
+  <!-- ================== قسم مكتبة الأكواد ================== -->
+  <div id="قسم_المكتبة" class="قسم">
+    <h1>📚 مكتبة الأكواد</h1>
+    <p class="hint">انسخ أي كود من الأسفل، والصقه في المحرر الرئيسي، ثم اضغط "تشغيل" لتجربته.</p>
 
-  <h2>🖥️ معاينة الصفحة:</h2>
-  <div id="مخرجات_الويب"></div>
+    <div class="كارت-كود">
+      <h4>1. كود الترحيب</h4>
+      <p>اطبع رسالة ترحيبية باسمك.</p>
+      <pre id="كود1">اطبع("أهلاً بك يا عبدالله في لغة عين!")</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود1')">📋 نسخ الكود</button>
+    </div>
+
+    <div class="كارت-كود">
+      <h4>2. هل أنت بالغ؟</h4>
+      <p>شرط بسيط يتحقق من العمر.</p>
+      <pre id="كود2">العمر = ٢٠
+إذا (العمر >= ١٨) {
+  اطبع("أنت بالغ ✅")
+} آخر {
+  اطبع("أنت قاصر ❌")
+}</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود2')">📋 نسخ الكود</button>
+    </div>
+
+    <div class="كارت-كود">
+      <h4>3. حلقة الأرقام</h4>
+      <p>اطبع الأرقام من ١ إلى ٥.</p>
+      <pre id="كود3">كرر ع من ١ إلى ٥ {
+  اطبع("العدد: " + ع)
+}</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود3')">📋 نسخ الكود</button>
+    </div>
+
+    <div class="كارت-كود">
+      <h4>4. دالة الترحيب</h4>
+      <p>أنشئ دالة ترحب بأي شخص.</p>
+      <pre id="كود4">دالة تحية(شخص) {
+  إرجع "مرحبًا يا " + شخص
+}
+اطبع(تحية("سارة"))</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود4')">📋 نسخ الكود</button>
+    </div>
+
+    <div class="كارت-كود">
+      <h4>5. العمليات الحسابية</h4>
+      <p>جرب الجذر، القوة، والأرقام العشوائية.</p>
+      <pre id="كود5">اطبع("جذر ٤٩ = " + جذر(٤٩))
+اطبع("٣ أس ٤ = " + قوة(٣، ٤))
+اطبع("عشوائي = " + عشوائي(١، ١٠٠))</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود5')">📋 نسخ الكود</button>
+    </div>
+
+    <div class="كارت-كود">
+      <h4>6. القوائم والمجموع</h4>
+      <p>أنشئ قائمة أرقام واجمع عناصرها.</p>
+      <pre id="كود6">أرقام = [١٠، ٢٠، ٣٠، ٤٠]
+اطبع("مجموع الأرقام: " + مجموع(أرقام))</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود6')">📋 نسخ الكود</button>
+    </div>
+
+    <div class="كارت-كود">
+      <h4>7. إضافة صورة وزر</h4>
+      <p>أضف صورة وزراً إلى صفحة الويب.</p>
+      <pre id="كود7">أضف_صورة("https://picsum.photos/400/180", "صورة تجريبية")
+أضف_زر("زيارة Google", "https://google.com")</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود7')">📋 نسخ الكود</button>
+    </div>
+
+    <div class="كارت-كود">
+      <h4>8. تغيير لون الخلفية</h4>
+      <p>غيّر لون الخلفية إلى لون عشوائي.</p>
+      <pre id="كود8">غير_اللون("#ffe4e1")
+اطبع("تم تغيير اللون!")</pre>
+      <button class="زر-نسخ-صغير" onclick="نسخ_كود('كود8')">📋 نسخ الكود</button>
+    </div>
+
+  </div>
+
+  <!-- ================== قسم من نحن ================== -->
+  <div id="قسم_من_نحن" class="قسم">
+    <h1>ℹ️ من نحن</h1>
+    <div class="صفحة-نص">
+      <h3>لغة عين للبرمجة</h3>
+      <p>منصة عربية تهدف إلى تعليم أساسيات البرمجة للمبتدئين باللغة العربية. الفكرة تقوم على كتابة الأوامر البرمجية بالعربي بدلاً من الإنجليزية، لتسهيل الفهم على من يريد أن يتعلم البرمجة لأول مرة.</p>
+      <p>المنصة تدعم المتغيرات، الشروط، الحلقات، الدوال، المكتبات الرياضية والنصية، وأوامر صفحة الويب (مثل إضافة صورة وزر ورابط).</p>
+      <p>الهدف هو جعل البرمجة بسيطة ومتاحة للجميع، مع مكتبة أكواد جاهزة للتجربة والتعلم.</p>
+    </div>
+  </div>
+
+  <!-- ================== قسم اتصل بنا ================== -->
+  <div id="قسم_اتصل_بنا" class="قسم">
+    <h1>📞 اتصل بنا</h1>
+    <div class="صفحة-نص">
+      <h3>نرحب بتواصلك!</h3>
+      <p>إذا كان لديك أي سؤال، اقتراح، أو ملاحظة حول المنصة، يمكنك التواصل معنا مباشرة عبر:</p>
+      <ul>
+        <li><strong>البريد الإلكتروني:</strong> <a href="mailto:nibrasalsd@gmail.com">nibrasalsd@gmail.com</a></li>
+        <li><strong>رقم الجوال / واتساب:</strong> <a href="https://wa.me/966569361182" target="_blank">0569361182</a></li>
+      </ul>
+      <p>نسعد بخدمتكم والرد على استفساراتكم في أقرب وقت.</p>
+    </div>
+  </div>
+
+  <!-- ================== قسم سياسة الخصوصية ================== -->
+  <div id="قسم_سياسة_الخصوصية" class="قسم">
+    <h1>🔒 سياسة الخصوصية</h1>
+    <div class="صفحة-نص">
+      <h3>سياسة الخصوصية</h3>
+      <p>نحن في "لغة عين للبرمجة" نحترم خصوصية زوارنا. توضح هذه السياسة كيفية تعاملنا مع المعلومات:</p>
+      <ul>
+        <li><strong>البيانات التي نجمعها:</strong> لا نقوم بجمع أي بيانات شخصية عن المستخدمين بشكل مباشر. الأكواد التي يكتبها المستخدم في المحرر لا يتم حفظها على أي سيرفر، بل تعمل داخل المتصفح فقط.</li>
+        <li><strong>ملفات تعريف الارتباط (Cookies):</strong> نستخدم عداد زوار بسيط لعرض عدد الزيارات والدول. هذا العداد قد يستخدم ملفات تعريف ارتباط لأغراض إحصائية.</li>
+        <li><strong>روابط خارجية:</strong> قد يحتوي الموقع على روابط لمواقع خارجية، ونحن غير مسؤولين عن سياسات الخصوصية الخاصة بها.</li>
+        <li><strong>التغييرات على السياسة:</strong> قد نقوم بتحديث هذه السياسة من وقت لآخر، وسيتم نشر أي تغييرات على هذه الصفحة.</li>
+      </ul>
+      <p>باستخدامك للموقع، فإنك توافق على هذه السياسة.</p>
+    </div>
+  </div>
 
 <script>
-// ============ أدوات ============
+// ============ 🌟 التنقل بين الأقسام ============
+function اظهار_قسم(اسم_القسم) {
+  // إخفاء كل الأقسام
+  document.querySelectorAll('.قسم').forEach(ق => ق.classList.remove('نشط'));
+  // إظهار القسم المطلوب
+  const خريطة = {
+    'المحرر': 'قسم_المحرر',
+    'المكتبة': 'قسم_المكتبة',
+    'من_نحن': 'قسم_من_نحن',
+    'اتصل_بنا': 'قسم_اتصل_بنا',
+    'سياسة_الخصوصية': 'قسم_سياسة_الخصوصية'
+  };
+  const عنصر = document.getElementById(خريطة[اسم_القسم]);
+  if (عنصر) عنصر.classList.add('نشط');
+  // إغلاق القائمة المنسدلة
+  document.querySelector('.محتوى-القائمة').style.display = 'none';
+}
+
+// ============ 🌟 نسخ كود من المكتبة ============
+function نسخ_كود(معرف_العنصر) {
+  const كود = document.getElementById(معرف_العنصر).innerText;
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(كود).then(() => alert('✅ تم نسخ الكود! الصقه في المحرر.')).catch(نسخ_احتياطي);
+  } else نسخ_احتياطي();
+  function نسخ_احتياطي() {
+    const ta = document.createElement('textarea');
+    ta.value = كود;
+    ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); alert('✅ تم نسخ الكود! الصقه في المحرر.'); }
+    catch (e) { alert('❌ فشل النسخ'); }
+    document.body.removeChild(ta);
+  }
+}
+
+// ============ 🌟 باقي دوال المحرر ============
 const خريطة_ع_إ = {'٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9'};
 const خريطة_إ_ع = {'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
 const تحويل_الأرقام_للإنجليزية = ن => ن.replace(/[٠-٩]/g, ح => خريطة_ع_إ[ح]);
 const تحويل_الأرقام_للعربية   = ن => String(ن).replace(/[0-9]/g, ر => خريطة_إ_ع[ر]);
 
-// ============ المكتبات ============
 const مكتبة_رياضيات = {
   'رقم': (ق) => Number(ق), 'عدد': (ق) => Number(ق),
   'جذر': (ن) => Math.sqrt(Number(ن)), 'قوة': (أ, ب) => Math.pow(Number(أ), Number(ب)),
@@ -191,7 +375,6 @@ const مكتبة_ألوان = {
 };
 const المكتبات = { ...مكتبة_رياضيات, ...مكتبة_نصوص, ...مكتبة_قوائم, ...مكتبة_وقت, ...مكتبة_تفاعل, ...مكتبة_ألوان };
 
-// ============ Tokenizer ============
 const الكلمات_المحجوزة = new Set([
   'متغير','اطبع','إذا','آخر','كرر','من','إلى','دالة','إرجع','بينما','و','أو',
   'أضف_نص','أضف_عنوان','غير_اللون','أضف_زر','أضف_رابط','أضف_صورة','عيّن_الخط'
@@ -215,7 +398,6 @@ function tokenize(code) {
   return tokens;
 }
 
-// ============ Parser ============
 function parse(tokens) {
   let pos = 0;
   const peek = (ن = 0) => tokens[pos + ن] || tokens[tokens.length - 1];
@@ -277,7 +459,6 @@ function parse(tokens) {
   return parseProgram();
 }
 
-// ============ Interpreter ============
 function تنفيذ(ast, طباعة) {
   const صندوق = document.getElementById('مخرجات_الويب');
   const بيئة_عالمية = {};
@@ -360,7 +541,6 @@ function تنفيذ(ast, طباعة) {
   نفّذ_عقدة(ast, بيئة_عالمية);
 }
 
-// ============ الواجهة ============
 function شغل() {
   const كود = document.getElementById('كود_عين').value;
   const ناتج = document.getElementById('الناتج');
@@ -413,7 +593,7 @@ function امسح_الكود() { if (confirm('مسح الكود؟')) document.ge
 function امسح_الناتج() { document.getElementById('الناتج').innerText = ''; document.getElementById('مخرجات_الويب').replaceChildren(); }
 </script>
 
-<!-- 🌟 عداد زوار Flag Counter في الزاوية اليمنى السفلية -->
+<!-- 🌟 عداد زوار Flag Counter -->
 <div style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #fff; border-radius: 8px; padding: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
     <a href="https://info.flagcounter.com/RlJ8">
         <img src="https://s05.flagcounter.com/count2/RlJ8/bg_FFFFFF/txt_000000/border_CCCCCC/columns_1/maxflags_3/viewers_3/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="width: 100px; height: auto; display: block; border-radius: 5px;">
