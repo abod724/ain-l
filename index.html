@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="logo.png" type="image/png">
-<title>لغة عين للبرمجة | تعلم البرمجة بالعربية للمبتدئين</title>
-<meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة. اكتب كودك بالعربي وشغّله مباشرة، مع مكتبة أكواد جاهزة للمبتدئين.">
-<meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, لغة برمجة عربية, مكتبة أكواد, برمجة للمبتدئين">
+<title>لغة عين للبرمجة | تعلم البرمجة بالعربية والمقارنة مع بايثون</title>
+<meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة، مع شرح تعليمي ومقارنة مع لغة بايثون. اكتب كودك بالعربي وشغّله مباشرة، وتعلم كيف تكتبه بالإنجليزية.">
+<meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, لغة برمجة عربية, تعلم بايثون, مكتبة أكواد, برمجة للمبتدئين">
 <style>
   * { box-sizing: border-box; }
   body { font-family: Tahoma, sans-serif; padding: 20px; padding-bottom: 100px; background: #f0f0f0; }
@@ -22,15 +22,13 @@
     background: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; font-family: Tahoma, sans-serif; font-size: 14px;
   }
   .قائمة-منسدلة .محتوى-القائمة {
-    display: none; position: absolute; right: 0; background-color: #fff; min-width: 200px;
+    display: none; position: absolute; right: 0; background-color: #fff; min-width: 220px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-radius: 5px; z-index: 1000; overflow: hidden;
   }
   .قائمة-منسدلة .محتوى-القائمة a {
     color: #333; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; border-bottom: 1px solid #eee; cursor: pointer;
   }
   .قائمة-منسدلة .محتوى-القائمة a:hover { background-color: #f1f1f1; color: #007bff; }
-  /* تم تعطيل فتح القائمة بالتمرير لأنها لا تعمل جيداً على الجوال */
-  /* .قائمة-منسدلة:hover .محتوى-القائمة { display: block; } */
 
   /* ============ 🌟 الأقسام ============ */
   .قسم { display: none; }
@@ -70,8 +68,11 @@
   }
   .زر-نسخ-صغير { background: #28a745; color: #fff; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 13px; }
   .زر-نسخ-صغير:hover { background: #1e7e34; }
-  .صفحة-نص { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); line-height: 1.8; }
+  .صفحة-نص { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); line-height: 1.8; margin-bottom: 20px; }
   .صفحة-نص h3 { color: #007bff; margin-top: 0; }
+  .صفحة-نص h4 { color: #333; margin-top: 20px; border-right: 4px solid #007bff; padding-right: 10px; }
+  .صفحة-نص .مقارنة { background: #f8f9fa; border-right: 4px solid #28a745; padding: 10px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', monospace; direction: ltr; text-align: left; }
+  .صفحة-نص .مقارنة strong { color: #28a745; }
 
   .أيقونة-نبراس {
     position: fixed; bottom: 20px; left: 20px; z-index: 999; padding: 14px 28px;
@@ -96,6 +97,7 @@
       <button class="زر-القائمة" onclick="تبديل_القائمة()">القائمة ▼</button>
       <div class="محتوى-القائمة">
         <a onclick="اظهار_قسم('المحرر')">🏠 المحرر الرئيسي</a>
+        <a onclick="اظهار_قسم('التعلم')">📖 تعلم البرمجة</a>
         <a onclick="اظهار_قسم('المكتبة')">📚 مكتبة الأكواد</a>
         <a onclick="اظهار_قسم('من_نحن')">ℹ️ من نحن</a>
         <a onclick="اظهار_قسم('اتصل_بنا')">📞 اتصل بنا</a>
@@ -170,6 +172,84 @@
 
     <h2>🖥️ معاينة الصفحة:</h2>
     <div id="مخرجات_الويب"></div>
+  </div>
+
+  <!-- ================== قسم تعلم البرمجة ================== -->
+  <div id="قسم_التعلم" class="قسم">
+    <h1>📖 تعلم البرمجة بالعربي مع مقارنة بايثون</h1>
+    <p class="hint">هنا نشرح المفاهيم الأساسية بالعربي، ثم نريك كيف تكتبها بلغة بايثون الاحترافية.</p>
+
+    <!-- درس 1: المتغيرات -->
+    <div class="صفحة-نص">
+      <h3>الدرس الأول: المتغيرات (المتغيرات)</h3>
+      <p><strong>ما هو المتغير؟</strong> المتغير هو "صندوق" نضع فيه قيمة (مثل رقم أو نص)، ونعطيه اسماً. عندما نريد استخدام هذه القيمة لاحقاً، ننادي على اسم الصندوق.</p>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">الاسم = "عبدالله"
+العمر = ٢٥
+اطبع("أهلاً " + الاسم)</pre>
+      <p><strong>في لغة بايثون (Python):</strong> نفس الفكرة تماماً، لكن الأسماء بالإنجليزية والأرقام بالإنجليزية.</p>
+      <div class="مقارنة">
+        <strong>الاسم = "عبدالله"</strong><br>
+        <strong>العمر = 25</strong><br>
+        <strong>print("أهلاً " + الاسم)</strong>
+      </div>
+      <p><strong>الخلاصة:</strong> المتغير هو أساس أي برنامج. تعلمت كيف تخزن قيمة وتستخدمها.</p>
+    </div>
+
+    <!-- درس 2: الشروط -->
+    <div class="صفحة-نص">
+      <h3>الدرس الثاني: الشروط (if / else)</h3>
+      <p><strong>ما هي الشروط؟</strong> هي طريقة تجعل البرنامج يتخذ قراراً. "إذا" تحقق شرط معين، نفذ شيئاً. "آخر" (وإلا)، نفذ شيئاً آخر.</p>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">إذا (العمر >= ١٨) {
+  اطبع("أنت بالغ")
+} آخر {
+  اطبع("أنت قاصر")
+}</pre>
+      <p><strong>في لغة بايثون:</strong> لاحظ أن بايثون تستخدم `if` و `else` و `:` بدلاً من الأقواس.</p>
+      <div class="مقارنة">
+        <strong>if age >= 18:</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("أنت بالغ")</strong><br>
+        <strong>else:</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("أنت قاصر")</strong>
+      </div>
+      <p><strong>الخلاصة:</strong> الشروط تجعل برنامجك "يفكر" ويتخذ قرارات.</p>
+    </div>
+
+    <!-- درس 3: الحلقات -->
+    <div class="صفحة-نص">
+      <h3>الدرس الثالث: الحلقات (for / while)</h3>
+      <p><strong>ما هي الحلقات؟</strong> هي طريقة لتكرار كود معين عدة مرات دون كتابته يدوياً. مثلاً، اطبع الأرقام من 1 إلى 100.</p>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">كرر ع من ١ إلى ٥ {
+  اطبع("العدد: " + ع)
+}</pre>
+      <p><strong>في لغة بايثون:</strong> تستخدم بايثون `for` و `range`.</p>
+      <div class="مقارنة">
+        <strong>for i in range(1, 6):</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("العدد:", i)</strong>
+      </div>
+      <p><strong>الخلاصة:</strong> الحلقات توفر عليك كتابة كود طويل ومتكرر.</p>
+    </div>
+
+    <!-- درس 4: الدوال -->
+    <div class="صفحة-نص">
+      <h3>الدرس الرابع: الدوال (Functions)</h3>
+      <p><strong>ما هي الدوال؟</strong> الدالة هي مجموعة من الأكواد تعطيها اسماً، وتستدعيها عندما تحتاجها. تستطيع أن تمرر لها "مدخلات" وتعيد لك "مخرجات".</p>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">دالة تحية(شخص) {
+  إرجع "مرحبًا يا " + شخص
+}
+اطبع(تحية("سارة"))</pre>
+      <p><strong>في لغة بايثون:</strong> تستخدم بايثون `def` و `return`.</p>
+      <div class="مقارنة">
+        <strong>def greet(name):</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>return "مرحبًا يا " + name</strong><br>
+        <strong>print(greet("سارة"))</strong>
+      </div>
+      <p><strong>الخلاصة:</strong> الدوال تجعل الكود منظماً وقابلاً لإعادة الاستخدام.</p>
+    </div>
+
   </div>
 
   <!-- ================== قسم مكتبة الأكواد ================== -->
@@ -256,7 +336,7 @@
     <div class="صفحة-نص">
       <h3>لغة عين للبرمجة</h3>
       <p>منصة عربية تهدف إلى تعليم أساسيات البرمجة للمبتدئين باللغة العربية. الفكرة تقوم على كتابة الأوامر البرمجية بالعربي بدلاً من الإنجليزية، لتسهيل الفهم على من يريد أن يتعلم البرمجة لأول مرة.</p>
-      <p>المنصة تدعم المتغيرات، الشروط، الحلقات، الدوال، المكتبات الرياضية والنصية، وأوامر صفحة الويب (مثل إضافة صورة وزر ورابط).</p>
+      <p>المنصة تدعم المتغيرات، الشروط، الحلقات، الدوال، المكتبات الرياضية والنصية، وأوامر صفحة الويب. كما توفر قسماً تعليمياً يشرح المفاهيم بالعربي ويقارنها بلغة بايثون.</p>
       <p>الهدف هو جعل البرمجة بسيطة ومتاحة للجميع، مع مكتبة أكواد جاهزة للتجربة والتعلم.</p>
     </div>
   </div>
@@ -301,7 +381,6 @@ function تبديل_القائمة() {
     قائمة.style.display = 'block';
   }
 }
-// إغلاق القائمة عند الضغط في أي مكان خارجها
 document.addEventListener('click', function(حدث) {
   const قائمة = document.querySelector('.قائمة-منسدلة');
   const محتوى = document.querySelector('.محتوى-القائمة');
@@ -315,6 +394,7 @@ function اظهار_قسم(اسم_القسم) {
   document.querySelectorAll('.قسم').forEach(ق => ق.classList.remove('نشط'));
   const خريطة = {
     'المحرر': 'قسم_المحرر',
+    'التعلم': 'قسم_التعلم',
     'المكتبة': 'قسم_المكتبة',
     'من_نحن': 'قسم_من_نحن',
     'اتصل_بنا': 'قسم_اتصل_بنا',
