@@ -199,9 +199,38 @@
         &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("You are minor")</strong>
       </div>
     </div>
+
+    <div class="صفحة-نص">
+      <h3>الدرس الثالث: الحلقات</h3>
+      <p><strong>ما هي الحلقات؟</strong> هي طريقة لتكرار كود معين عدة مرات.</p>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">كرر ع من ١ إلى ٥ {
+  اطبع("العدد: " + ع)
+}</pre>
+      <p><strong>في لغة بايثون:</strong></p>
+      <div class="مقارنة">
+        <strong>for i in range(1, 6):</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>print("Number:", i)</strong>
+      </div>
+    </div>
+
+    <div class="صفحة-نص">
+      <h3>الدرس الرابع: الدوال</h3>
+      <p><strong>ما هي الدوال؟</strong> الدالة هي مجموعة من الأكواد تعطيها اسماً، وتستدعيها عندما تحتاجها.</p>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">دالة تحية(شخص) {
+  إرجع "مرحبًا يا " + شخص
+}
+اطبع(تحية("سارة"))</pre>
+      <p><strong>في لغة بايثون:</strong></p>
+      <div class="مقارنة">
+        <strong>def greet(name):</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>return "Hello " + name</strong><br>
+        <strong>print(greet("Sarah"))</strong>
+      </div>
+    </div>
   </div>
 
-  <!-- مكتبة الأكواد (تُبنى تلقائياً من ملف codes.js) -->
   <div id="قسم_المكتبة" class="قسم">
     <h1>📚 مكتبة الأكواد</h1>
     <p class="hint">انسخ أي كود من الأسفل، والصقه في المحرر الرئيسي، ثم اضغط "تشغيل" لتجربته.</p>
@@ -269,7 +298,7 @@
 <script src="codes.js"></script>
 
 <script>
-// ============ 🌟 بناء مكتبة الأكواد تلقائياً من ملف codes.js ============
+// ============ 🌟 بناء مكتبة الأكواد تلقائياً ============
 function بناء_مكتبة_الأكواد() {
   const حاوية = document.getElementById('حاوية_الأكواد');
   if (!حاوية || typeof مكتبة_الأكواد === 'undefined') return;
@@ -286,9 +315,9 @@ function بناء_مكتبة_الأكواد() {
     const شرح = document.createElement('p');
     شرح.textContent = كود.شرح;
     
-    const pre = document.createElement('pre');
-    pre.id = 'كود_' + رقم;
-    pre.textContent = كود.كود;
+    const pre_عربي = document.createElement('pre');
+    pre_عربي.id = 'كود_' + رقم;
+    pre_عربي.textContent = كود.كود;
     
     const زر_نسخ = document.createElement('button');
     زر_نسخ.className = 'زر-نسخ-صغير';
@@ -297,15 +326,31 @@ function بناء_مكتبة_الأكواد() {
     
     كارت.appendChild(عنوان);
     كارت.appendChild(شرح);
-    كارت.appendChild(pre);
+    كارت.appendChild(pre_عربي);
     كارت.appendChild(زر_نسخ);
+    
+    if (كود.انجليزي) {
+      const عنوان_انجليزي = document.createElement('h5');
+      عنوان_انجليزي.textContent = '🐍 المقابل بلغة بايثون:';
+      عنوان_انجليزي.style.marginTop = '12px';
+      عنوان_انجليزي.style.color = '#28a745';
+      
+      const pre_انجليزي = document.createElement('pre');
+      pre_انجليزي.textContent = كود.انجليزي;
+      pre_انجليزي.style.background = '#f0fff4';
+      pre_انجليزي.style.borderRight = '4px solid #28a745';
+      pre_انجليزي.style.direction = 'ltr';
+      pre_انجليزي.style.textAlign = 'left';
+      
+      كارت.appendChild(عنوان_انجليزي);
+      كارت.appendChild(pre_انجليزي);
+    }
+    
     حاوية.appendChild(كارت);
   });
 }
 
-// استدعاء الدالة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', بناء_مكتبة_الأكواد);
-// نسخة احتياطية في حال تأخر تحميل codes.js
 window.addEventListener('load', بناء_مكتبة_الأكواد);
 
 // ============ باقي الدوال ============
