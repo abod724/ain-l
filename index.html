@@ -11,6 +11,35 @@
   * { box-sizing: border-box; }
   body { font-family: Tahoma, sans-serif; padding: 20px; padding-bottom: 100px; background: #f0f0f0; }
 
+  /* 🚩 تأثير العلم السعودي */
+  .علم-السعودية {
+    width: 80px;
+    height: auto;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 9999;
+    animation: رفرفة 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+    border-radius: 4px;
+  }
+
+  @keyframes رفرفة {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-3deg) scale(1.02); }
+    50% { transform: rotate(0deg) scale(1); }
+    75% { transform: rotate(3deg) scale(1.02); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+
+  @media (max-width: 600px) {
+    .علم-السعودية {
+      width: 50px;
+      top: 10px;
+      left: 10px;
+    }
+  }
+
   .شريط-التنقل {
     background: #ffffff; padding: 10px 20px; border-radius: 8px; margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
@@ -92,6 +121,11 @@
 </head>
 <body>
 
+  <!-- 🚩 علم السعودية يرفرف -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" 
+       alt="علم السعودية" 
+       class="علم-السعودية">
+
   <nav class="شريط-التنقل">
     <span class="شعار" onclick="اظهار_قسم('المحرر')">لغة عين</span>
     <div class="قائمة-منسدلة">
@@ -112,7 +146,7 @@
 
   <div id="قسم_المحرر" class="قسم نشط">
     <h1>لغة عين للبرمجة</h1>
-    <p class="hint">اكتب كودك بالعربي أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
+    <p class="hint">اكتب كودك أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
 
     <textarea id="كود_عين">غير_اللون("#eef2ff")
 أضف_عنوان("🐍 لغة عين للبرمجة")
