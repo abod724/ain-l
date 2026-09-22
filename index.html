@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="logo.png" type="image/png">
+<!-- ✅ تمت الإضافة: ربط ملف manifest.json -->
+<link rel="manifest" href="manifest.json">
 <title>لغة عين للبرمجة | تعلم البرمجة بالعربية</title>
 <meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة، مع شرح تعليمي ومقارنة مع لغة بايثون.">
 <meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, تعلم بايثون, مكتبة أكواد">
@@ -995,6 +997,19 @@ function امسح_الناتج() { document.getElementById('الناتج').inner
         <img src="https://s05.flagcounter.com/count2/RlJ8/bg_FFFFFF/txt_000000/border_CCCCCC/columns_1/maxflags_3/viewers_3/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="width: 100px; height: auto; display: block; border-radius: 5px;">
     </a>
 </div>
+
+<!-- ✅ تمت الإضافة: تسجيل Service Worker لتشغيل خاصية التثبيت -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js').then(function(registration) {
+        console.log('تم تسجيل Service Worker بنجاح:', registration.scope);
+      }, function(err) {
+        console.log('فشل تسجيل Service Worker:', err);
+      });
+    });
+  }
+</script>
 
 </body>
 </html>
