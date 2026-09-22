@@ -4,36 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="logo.png" type="image/png">
-<title>لغة عين للبرمجة | تعلم البرمجة بالعربية  </title>
+<title>لغة عين للبرمجة | تعلم البرمجة بالعربية</title>
 <meta name="description" content="منصة عربية لتعلم البرمجة بأوامر عربية بسيطة، مع شرح تعليمي ومقارنة مع لغة بايثون.">
 <meta name="keywords" content="لغة عين, برمجة بالعربي, تعلم البرمجة, تعلم بايثون, مكتبة أكواد">
 <style>
   * { box-sizing: border-box; }
   body { font-family: Tahoma, sans-serif; padding: 20px; padding-bottom: 100px; background: #f0f0f0; }
 
-  /* 🚩 علم السعودية (GIF متحرك) */
   .علم-السعودية {
-    width: 80px;
-    height: auto;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 9999;
-    border-radius: 4px;
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+    width: 80px; height: auto; position: fixed; top: 15px; left: 15px; z-index: 9999;
+    border-radius: 4px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
   }
-
-  @media (max-width: 600px) {
-    .علم-السعودية {
-      width: 50px;
-      top: 10px;
-      left: 10px;
-    }
-  }
+  @media (max-width: 600px) { .علم-السعودية { width: 50px; top: 10px; left: 10px; } }
 
   .شريط-التنقل {
     background: #ffffff; padding: 10px 20px; border-radius: 8px; margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
   }
   .شريط-التنقل .شعار { font-weight: bold; color: #007bff; font-size: 18px; cursor: pointer; }
   .قائمة-منسدلة { position: relative; display: inline-block; }
@@ -108,20 +94,74 @@
     body { padding-bottom: 90px; }
     .أيقونة-نبراس { bottom: 14px; left: 14px; padding: 12px 22px; font-size: 14px; }
   }
+
+  /* 🐍 زر تعلم بايثون */
+  .زر-بايثون {
+    display: inline-block;
+    background: linear-gradient(135deg, #3776AB, #2b5b87);
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s;
+    margin: 5px;
+    box-shadow: 0 2px 5px rgba(55, 118, 171, 0.3);
+  }
+  .زر-بايثون:hover {
+    background: linear-gradient(135deg, #FFD43B, #f0b400);
+    color: #3776AB !important;
+    transform: translateY(-2px);
+  }
+  .زر-بايثون-كبير {
+    display: inline-block;
+    background: linear-gradient(135deg, #3776AB, #2b5b87);
+    color: #fff !important;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(55, 118, 171, 0.4);
+    transition: all 0.3s;
+  }
+  .زر-بايثون-كبير:hover {
+    background: linear-gradient(135deg, #FFD43B, #f0b400);
+    color: #3776AB !important;
+    transform: translateY(-3px) scale(1.05);
+  }
+  .كود-بايثون {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-right: 4px solid #FFD43B !important;
+    direction: ltr !important;
+    text-align: left !important;
+    padding: 12px !important;
+    border-radius: 6px !important;
+    font-family: 'Consolas', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    overflow-x: auto;
+    margin: 10px 0;
+    white-space: pre;
+  }
 </style>
 </head>
 <body>
 
-  <!-- 🚩 علم السعودية يرفرف -->
   <img src="saudi-flag.gif" alt="علم السعودية" class="علم-السعودية">
 
   <nav class="شريط-التنقل">
     <span class="شعار" onclick="اظهار_قسم('المحرر')">لغة عين</span>
+    <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank" rel="noopener" class="زر-بايثون">🐍 تعلم بايثون</a>
     <div class="قائمة-منسدلة">
       <button class="زر-القائمة" onclick="تبديل_القائمة()">القائمة ▼</button>
       <div class="محتوى-القائمة">
         <a onclick="اظهار_قسم('المحرر')"> المحرر الرئيسي</a>
         <a onclick="اظهار_قسم('التعلم')"> تعلم البرمجة</a>
+        <a onclick="اظهار_قسم('بايثون')">🐍 تعلم بايثون</a>
         <a onclick="اظهار_قسم('المكتبة')"> مكتبة الأكواد</a>
         <a onclick="اظهار_قسم('شارك')"> شارك كودك</a>
         <a onclick="اظهار_قسم('من_نحن')"> من نحن</a>
@@ -135,7 +175,7 @@
 
   <div id="قسم_المحرر" class="قسم نشط">
     <h1>لغة عين للبرمجة</h1>
-    <p class="hint">اكتب كودك بالعربي أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
+    <p class="hint">اكتب كودك أدناه — يدعم: متغيرات، شروط، حلقات، دوال، مكتبات، أوامر صفحة.</p>
 
     <textarea id="كود_عين">غير_اللون("#eef2ff")
 أضف_عنوان("🐍 لغة عين للبرمجة")
@@ -224,13 +264,115 @@
     </div>
   </div>
 
+  <!-- 🐍 قسم تعلم بايثون -->
+  <div id="قسم_بايثون" class="قسم">
+    <h1>🐍 تعلم لغة بايثون (Python)</h1>
+    <p class="hint">بايثون هي أشهر لغة برمجة في العالم. نفس مفاهيم "عين" لكن بأوامر إنجليزية بسيطة.</p>
+
+    <div style="background: linear-gradient(135deg, #e3f2fd, #f0f9ff); border: 2px solid #3776AB; border-radius: 12px; padding: 25px; margin: 20px 0; text-align: center;">
+      <h2 style="color: #3776AB; margin-top: 0;">🚀 جاهز تبدأ؟</h2>
+      <p style="font-size: 16px; color: #333;">جرب بايثون مباشرة في متصفحك بدون تحميل أي برامج!</p>
+      <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank" rel="noopener" class="زر-بايثون-كبير">▶ ابدأ البرمجة الآن</a>
+    </div>
+
+    <div class="صفحة-نص">
+      <h3>📖 الدرس الأول: الطباعة</h3>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">اطبع("مرحبا")</pre>
+      <p><strong>في لغة بايثون:</strong></p>
+      <div class="كود-بايثون"># طباعة نص
+print("مرحبا")</div>
+      <p class="hint">💡 الفرق: <code>اطبع</code> تصبح <code>print</code></p>
+    </div>
+
+    <div class="صفحة-نص">
+      <h3>📖 الدرس الثاني: المتغيرات</h3>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">الاسم = "عبدالله"
+العمر = ٢٥
+اطبع("أهلاً " + الاسم)</pre>
+      <p><strong>في لغة بايثون:</strong></p>
+      <div class="كود-بايثون"># متغيرات
+name = "Abdullah"
+age = 25
+print("Hello " + name)</div>
+      <p class="hint">💡 تقدر تستخدم أسماء عربية في بايثون، لكن الأفضل تتعود على الإنجليزية.</p>
+    </div>
+
+    <div class="صفحة-نص">
+      <h3>📖 الدرس الثالث: الشروط (if)</h3>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">إذا (العمر >= ١٨) {
+  اطبع("أنت بالغ")
+} آخر {
+  اطبع("أنت قاصر")
+}</pre>
+      <p><strong>في لغة بايثون:</strong></p>
+      <div class="كود-بايثون"># شروط
+if age >= 18:
+    print("You are adult")
+else:
+    print("You are minor")</div>
+      <p class="hint">⚠️ لاحظ: بايثون يستخدم <strong>المسافات البادئة</strong> بدل الأقواس <code>{ }</code></p>
+    </div>
+
+    <div class="صفحة-نص">
+      <h3>📖 الدرس الرابع: الحلقات (for)</h3>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">كرر ع من ١ إلى ٥ {
+  اطبع("العدد: " + ع)
+}</pre>
+      <p><strong>في لغة بايثون:</strong></p>
+      <div class="كود-بايثون"># حلقة تكرار
+for i in range(1, 6):
+    print("Number: ", i)</div>
+    </div>
+
+    <div class="صفحة-نص">
+      <h3>📖 الدرس الخامس: الدوال (def)</h3>
+      <p><strong>في لغة عين:</strong></p>
+      <pre style="background:#f8f9fa; padding:10px; border-radius:5px; direction:rtl; text-align:right;">دالة تحية(شخص) {
+  إرجع "مرحبًا يا " + شخص
+}
+اطبع(تحية("سارة"))</pre>
+      <p><strong>في لغة بايثون:</strong></p>
+      <div class="كود-بايثون"># دالة
+def greet(name):
+    return "Hello " + name
+
+print(greet("Sarah"))</div>
+    </div>
+
+    <div class="صفحة-نص">
+      <h3>📊 جدول المقارنة السريع</h3>
+      <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background: #007bff; color: white;">
+          <th style="padding: 10px; border: 1px solid #ddd;">المفهوم</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">لغة عين</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">بايثون</th>
+        </tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd;">طباعة</td><td style="padding: 8px; border: 1px solid #ddd;">اطبع</td><td style="padding: 8px; border: 1px solid #ddd;"><code>print</code></td></tr>
+        <tr style="background: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd;">شرط</td><td style="padding: 8px; border: 1px solid #ddd;">إذا</td><td style="padding: 8px; border: 1px solid #ddd;"><code>if</code></td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd;">وإلا</td><td style="padding: 8px; border: 1px solid #ddd;">آخر</td><td style="padding: 8px; border: 1px solid #ddd;"><code>else</code></td></tr>
+        <tr style="background: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd;">حلقة</td><td style="padding: 8px; border: 1px solid #ddd;">كرر</td><td style="padding: 8px; border: 1px solid #ddd;"><code>for</code></td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd;">دالة</td><td style="padding: 8px; border: 1px solid #ddd;">دالة</td><td style="padding: 8px; border: 1px solid #ddd;"><code>def</code></td></tr>
+        <tr style="background: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd;">إرجاع</td><td style="padding: 8px; border: 1px solid #ddd;">إرجع</td><td style="padding: 8px; border: 1px solid #ddd;"><code>return</code></td></tr>
+      </table>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #fff8e1, #fffde7); border: 2px solid #FFD43B; border-radius: 12px; padding: 25px; margin-top: 30px; text-align: center;">
+      <h2 style="color: #3776AB; margin-top: 0;">🎓 جاهز للاحتراف؟</h2>
+      <p style="font-size: 16px; color: #333;">ابدأ التطبيق العملي على بايثون الآن، بدون تحميل أي برامج!</p>
+      <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank" rel="noopener" class="زر-بايثون-كبير">🐍 ابدأ الآن مجاناً</a>
+    </div>
+  </div>
+
   <div id="قسم_المكتبة" class="قسم">
     <h1>📚 مكتبة الأكواد</h1>
     <p class="hint">انسخ أي كود من الأسفل، والصقه في المحرر الرئيسي، ثم اضغط "تشغيل" لتجربته.</p>
     <div id="حاوية_الأكواد"></div>
   </div>
 
-  <!-- قسم شارك كودك (مع رسالة التأكيد) -->
   <div id="قسم_شارك" class="قسم">
     <h1>💬 شارك كودك أو سؤالك</h1>
     <p class="hint">اكتب كوداً برمجياً بلغة عين، أو اطرح سؤالاً. سيصلنا إرسالك، وسنراجعه وننشره في المنصة.</p>
@@ -280,7 +422,6 @@
     </div>
   </div>
 
-  <!-- ✅ قسم سياسة الخصوصية (المحدث) -->
   <div id="قسم_سياسة_الخصوصية" class="قسم">
     <h1>🔒 سياسة الخصوصية</h1>
     <div class="صفحة-نص">
@@ -559,7 +700,7 @@ function اظهار_قسم(اسم_القسم) {
   const خريطة = {
     'المحرر': 'قسم_المحرر', 'التعلم': 'قسم_التعلم', 'المكتبة': 'قسم_المكتبة',
     'شارك': 'قسم_شارك', 'من_نحن': 'قسم_من_نحن', 'اتصل_بنا': 'قسم_اتصل_بنا',
-    'سياسة_الخصوصية': 'قسم_سياسة_الخصوصية'
+    'سياسة_الخصوصية': 'قسم_سياسة_الخصوصية', 'بايثون': 'قسم_بايثون'
   };
   const عنصر = document.getElementById(خريطة[اسم_القسم]);
   if (عنصر) عنصر.classList.add('نشط');
@@ -849,7 +990,6 @@ function امسح_الكود() { if (confirm('مسح الكود؟')) document.ge
 function امسح_الناتج() { document.getElementById('الناتج').innerText = ''; document.getElementById('مخرجات_الويب').replaceChildren(); }
 </script>
 
-<!-- 🌟 عداد زوار Flag Counter -->
 <div style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #fff; border-radius: 8px; padding: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
     <a href="https://info.flagcounter.com/RlJ8">
         <img src="https://s05.flagcounter.com/count2/RlJ8/bg_FFFFFF/txt_000000/border_CCCCCC/columns_1/maxflags_3/viewers_3/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="width: 100px; height: auto; display: block; border-radius: 5px;">
