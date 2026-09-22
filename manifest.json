@@ -1,1 +1,21 @@
-
+{
+  "name": "لغة عين للبرمجة",
+  "short_name": "عين",
+  "description": "موقع لتعلم لغة عين للبرمجة",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a5e2a",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
