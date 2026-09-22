@@ -2,14 +2,14 @@
   "name": "لغة عين للبرمجة",
   "short_name": "عين",
   "description": "بيئة برمجة عربية تفاعلية للمبتدئين",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1a5e2a",
   "orientation": "portrait",
   "lang": "ar",
   "dir": "rtl",
-  "id": "/index.html",
+  "id": "/taheel-employees/",
   "icons": [
     {
       "src": "icon-192.png",
@@ -22,13 +22,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "screenshot.png",
-      "sizes": "1280x720",
-      "type": "image/png"
     }
   ]
 }
