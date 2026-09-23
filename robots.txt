@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abod724.github.io/taheel-employees/sitemap.xml
+Sitemap: https://abod724.github.io/ain-l/sitemap.xml
