@@ -3,16 +3,16 @@
 
   <!-- الصفحة الرئيسية لمنصة لغة عين -->
   <url>
-    <loc>https://abod724.github.io/taheel-employees/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <loc>https://abod724.github.io/ain-l/</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- إذا أنشأت صفحة داخلية لنبراس -->
+  <!-- صفحة نبراس -->
   <url>
-    <loc>https://abod724.github.io/taheel-employees/nibras.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <loc>https://abod724.github.io/ain-l/nibras.html</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
