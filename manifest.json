@@ -3,13 +3,14 @@
   "short_name": "عين",
   "description": "بيئة برمجة عربية تفاعلية للمبتدئين",
   "start_url": "./index.html",
+  "scope": "./",
+  "id": "/ain-l/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1a5e2a",
   "orientation": "portrait",
   "lang": "ar",
   "dir": "rtl",
-  "id": "/taheel-employees/",
   "icons": [
     {
       "src": "icon-192.png",
